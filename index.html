@@ -1,657 +1,964 @@
+<!---# Meu Petit Bolinho® — Estrutura Front-End Institucional
+
+## Estrutura de Pastas
+
+```plaintext
+/meupetitbolinho
+│
+├── index.html
+├── /assets
+│   ├── /img
+│   ├── /icons
+│   ├── /logos
+│   ├── /social
+│   └── /banners
+│
+├── /css
+│   ├── variables.css
+│   ├── style.css
+│   ├── responsive.css
+│   └── animations.css
+│
+├── /js
+│   └── main.js
+│
+└── /docs
+    ├── cardapio.pdf
+    └── politica-pedidos.pdf
+```
+
+---
+
+# index.html 
+
+```html--->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ========================================
-       META TAGS — RETEAR®
-  ========================================= -->
+  <title>Meu Petit Bolinho® | Confeitaria Autoral em Curitiba</title>
 
-  <!-- Codificação e idioma -->
-  <meta charset="utf-8">
+  <meta name="description" content="Confeitaria autoral contemporânea especializada em experiências afetivas saudáveis e celebrações intimistas em Curitiba." />
 
-  <meta http-equiv="content-language"
-  content="pt-BR">
+  <meta name="keywords" content="confeitaria saudável Curitiba, bolos personalizados Curitiba, confeitaria premium, bolos baby friendly, patisserie artesanal" />
 
-  <!-- Responsividade -->
-  <meta name="viewport"
-  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta property="og:title" content="Meu Petit Bolinho®" />
+  <meta property="og:description" content="Confeitaria autoral contemporânea especializada em experiências afetivas saudáveis." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/banners/hero.jpg" />
 
-  <!-- Título SEO -->
-  <title>
-    RETEAR® | Infraestrutura Operacional Regenerativa para a Indústria Têxtil
-  </title>
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Descrição SEO -->
-  <meta name="description"
-  content="RETEAR® é um ecossistema modular de infraestrutura operacional humanizada para a indústria têxtil, integrando rastreabilidade, inteligência operacional, automação progressiva, logística, gestão, produtividade e re-ciclo através de frentes estruturais adaptáveis e escaláveis.">
+  <link rel="canonical" href="https://victormordekai.github.io/meupetitbolinho/" />
 
-  <!-- Canonical -->
-  <link rel="canonical"
-  href="https://victormordekai.github.io/RE-TEAR/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Keywords -->
-  <meta name="keywords"
-  content="RETEAR, infraestrutura operacional, indústria têxtil, rastreabilidade, automação industrial, inteligência operacional, ESG operacional, logística reversa, gestão produtiva, JACQUARD, supply chain têxtil, ERP têxtil, produtividade industrial, operação regenerativa, re-ciclo, VMORDEKAI, engenharia operacional, transformação industrial">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Autor -->
-  <meta name="author"
-  content="Victor Mordekai Ferreira">
-
-  <!-- Direitos -->
-  <meta name="copyright"
-  content="© RETEAR® — Infraestrutura Operacional Regenerativa">
-
-  <!-- Mobile -->
-  <meta name="mobile-web-app-capable"
-  content="yes">
-
-  <meta name="apple-mobile-web-app-capable"
-  content="yes">
-
-  <meta name="theme-color"
-  content="#060606">
-
-  <meta name="apple-mobile-web-app-status-bar-style"
-  content="black-translucent">
-
-  <!-- ========================================
-       OPEN GRAPH
-  ========================================= -->
-
-  <meta property="og:title"
-  content="RETEAR® | Infraestrutura Operacional Regenerativa">
-
-  <meta property="og:description"
-  content="Ecossistema modular para integração entre gestão, produção, logística, rastreabilidade, inteligência operacional e automação progressiva aplicada à indústria têxtil.">
-
-  <meta property="og:image"
-  content="https://victormordekai.github.io/RE-TEAR/imagens/og-banner.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="image/jpeg">
-  
-  <meta property="og:url"
-  content="https://victormordekai.github.io/RE-TEAR/">
-
-  <meta property="og:type"
-  content="website">
-
-  <meta property="og:locale"
-  content="pt_BR">
-
-  <meta property="og:site_name"
-  content="RETEAR®">  
-
-  <!-- ========================================
-       TWITTER CARD
-  ========================================= -->
-
-  <meta name="twitter:card"
-  content="summary_large_image">
-
-  <meta name="twitter:title"
-  content="RETEAR® | Infraestrutura Operacional Humanizada">
-
-  <meta name="twitter:description"
-  content="Rastreabilidade, automação progressiva, inteligência operacional e reorganização produtiva para operações têxteis adaptáveis e escaláveis.">
-
-  <meta name="twitter:image"
-  content="https://victormordekai.github.io/RE-TEAR/imagens/logo-corpo.png">
-
-  <!-- ========================================
-       FAVICONS
-  ========================================= -->
-
-  <link rel="icon"
-  type="image/png"
-  sizes="32x32"
-  href="imagens/logo-corpo-URL.png">
-
-  <link rel="apple-touch-icon"
-  href="imagens/logo-corpo-URL.png">
-
-  <!-- ========================================
-       INDEXAÇÃO
-  ========================================= -->
-
-  <meta name="robots"
-  content="index, follow">
-
-  <meta name="googlebot"
-  content="index, follow">
-
-  <!-- ========================================
-       PERFORMANCE
-  ========================================= -->
-
-  <link rel="preconnect"
-  href="https://fonts.googleapis.com">
-
-  <link rel="preconnect"
-  href="https://fonts.gstatic.com"
-  crossorigin>
-
-  <!-- ========================================
-       TIPOGRAFIA
-  ========================================= -->
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-  rel="stylesheet">
-
-  <!-- ========================================
-       CSS
-  ========================================= -->
-
-  <link rel="stylesheet"
-  href="style.css">
-
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/animations.css" />
 </head>
-
 <body>
 
+  <header class="header">
+    <div class="container nav-wrapper">
 
-  <!-- ========================================
-       POP UP OPEN
-  ========================================= -->
- 
- <div id="floating-campaign-root"></div>
+      <a href="#" class="logo-area">
+        <img src="assets/logos/logo.png" alt="Meu Petit Bolinho" />
+      </a>
 
-  <script src="script.js"></script>
-
-
-  <div class="noise"></div>
-
-  <!-- ========================================
-       NAV
-  ========================================= -->
-
-  <header class="nav" id="navbar">
-
-    <div class="container nav-inner">
-		<button class="menu-toggle" id="menu-toggle">
-		  ☰
-		</button>
-	<a href="#" class="logo">
-
-	  <img
-		src="imagens/logo-corpo.png"
-		alt="RETEAR®"
-		class="logo-symbol"
-	  >
-
-	  <span class="logo-text">
-		<span class="re">RE</span><span class="tear">TEAR®</span>
-	  </span>
-
-	</a>
-
-      <nav class="nav-menu" id="nav-menu">
-	  
-        <a href="#ecossistema">Ecossistema</a>
-        <a href="#filosofia">Filosofia</a>
-        <a href="#jacquard">JACQUARD</a>
-        <a href="#contato">Diagnóstico</a>
+      <nav class="nav-menu">
+        <a href="#sobre">Sobre</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#processo">Processo</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contato">Contato</a>
       </nav>
 
-    </div>
+      <a href="https://wa.me/5541987862994" target="_blank" class="btn-primary">
+        Fazer Pedido
+      </a>
 
+    </div>
   </header>
 
-  <!-- ========================================
-       HERO
-  ========================================= -->
+  <main>
 
-  <section class="hero">
+    <section class="hero-section">
 
-    <div class="hero-gradient">
-      <div class="gradient-orb" id="orb"></div>
-      <div class="hero-grid"></div>
-      <div class="hero-wave" id="wave"></div>
-    </div>
+      <div class="hero-overlay"></div>
 
-    <div class="container hero-content">
+      <div class="container hero-grid">
 
-      <div class="hero-text">
+        <div class="hero-content fade-up">
 
-        <small>Infraestrutura operacional regenerativa</small>
+          <span class="eyebrow">
+            Confeitaria Autoral Contemporânea
+          </span>
 
-        <h2>
-          Sistemas criam continuidade.
-        </h2>
-
-        <p>
-          A RETEAR® estrutura operações industriais através de inteligência operacional, rastreabilidade, integração sistêmica e automação progressiva.
-          Não como software genérico, mas como infraestrutura adaptável orientada pela realidade operacional.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#contato" class="btn btn-primary">
-            Estruturar operação
-          </a>
-
-          <a href="#ecossistema" class="btn btn-secondary">
-            Conhecer ecossistema
-          </a>
-        </div>
-
-      </div>
-
-      <div class="hero-symbol">
-
-	  <div class="hero-core">
-		  <img src="imagens/logo.png" alt="RETEAR®">
-	  </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ========================================
-       ECOSSISTEMA
-  ========================================= -->
-
-  <section class="section" id="ecossistema">
-
-    <div class="container">
-
-      <div class="section-head">
-
-        <small>Frentes estruturais do ecossistema RETEAR</small>
-
-        <h3>
-          Inteligência operacional aplicada à reorganização produtiva.
-        </h3>
-
-        <p>
-          Cada frente estrutural atua sobre uma camada crítica da operação industrial, conectando gestão, produção, logística, desenvolvimento e re-ciclo através de frameworks metodológicos integrados.
-        </p>
-
-      </div>
-
-      <div class="fronts-grid">
-
-		<article class="front-card">
-
-		  <small>Frente estrutural</small>
-
-		  <h4>MALHA</h4>
-
-		  <p>
-			Estrutura governança organizacional, conformidade institucional, inteligência administrativa e rastreabilidade decisória para operações industriais adaptáveis e sustentáveis.
-		  </p>
-
-		  <div class="front-tags">
-			<span>Governança</span>
-			<span>Compliance</span>
-			<span>Indicadores</span>
-		  </div>
-
-		</article>
-
-		<article class="front-card">
-
-		  <small>Frente estrutural</small>
-
-		  <h4>LONA</h4>
-
-		  <p>
-			Integra supply chain, CRM, logística omnichannel, movimentações e rastreabilidade de fluxo operacional entre setores, clientes e cadeia produtiva.
-		  </p>
-
-		  <div class="front-tags">
-			<span>Supply Chain</span>
-			<span>CRM</span>
-			<span>Fluxo operacional</span>
-		  </div>
-
-		</article>
-
-		<a 
-		  href="https://wa.me/message/LIKDPGYCWU5CF1?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20frente%20JACQUARD%20para%20implantar%20em%20minha%20empresa"
-		  target="_blank"
-		  rel="noopener noreferrer"
-		  class="front-card front-card-premium"
-		  id="jacquard"
-		>
-
-		  <small>MVP operacional inicial</small>
-
-		  <h4>JACQUARD</h4>
-
-		  <p>
-			Núcleo metodológico-industrial voltado para produtividade, ordens de produção, rastreabilidade e integração entre setores produtivos.
-		  </p>
-
-		  <div class="front-tags front-tags-select">
-			<span>Produção</span>
-			<span>Rastreabilidade</span>
-			<span>Indicadores</span>
-		  </div>
-
-		</a>
-		
-		<article class="front-card">
-
-		  <small>Frente estrutural</small>
-
-		  <h4>GABARDINE</h4>
-
-		  <p>
-			Estrutura pesquisa aplicada, desenvolvimento de coleções e inteligência criativa para integração entre identidade de produto, linguagem visual e desenvolvimento conceitual.
-		  </p>
-
-		  <div class="front-tags">
-			<span>Pesquisa aplicada (R&D)</span>
-			<span>Coleções</span>
-			<span>Direção criativa</span>
-		  </div>
-
-		</article>
-
-		<article class="front-card">
-		  <small>Frente estrutural</small>
-
-		  <h4>RE-TEAR</h4>
-
-		  <p>
-			Estrutura logística reversa, rastreabilidade de excedentes e reorganização regenerativa da cadeia têxtil, conectando excedentes industriais, microprodução, capacitação operacional e circularidade produtiva.
-		  </p>
-
-		  <div class="front-tags">
-			<span>ESG operacional</span>
-			<span>Re-ciclo</span>
-			<span>Circularidade</span>
-			<span>Logística reversa</span>
-			<span>Capacitação</span>
-		  </div>
-		</article>
-		
-		<a
-		  href="/RE-TEAR/campaigns/nr1.html"
-		  class="front-card front-card-premium"
-		  id="nr1-campaign"
-		  >
-
-		  <small>Campanha</small>
-
-		<h4>Nova NR-1<br>(Adequação Prática)</h4>
-
-		<p>
-		  Gestão de Riscos Psicossociais em conformidade com a nova NR-1. Promova a qualidade de vida e o bem-estar através de processos práticos e comunicação não-violenta, consolidando um ambiente produtivo, engajado e preparado para atingir metas com equilíbrio.
-		</p>
-
-
-		<div class="front-tags front-tags-select">
-		  <span>Nova NR-1</span>
-		  <span>Governança Operacional</span>
-		  <span>Qualidade de Vida</span>
-		</div>	
-		
-		</a>
-		
-    </div>
-
-  </section>
-
-  <!-- ========================================
-       PHILOSOPHY
-  ========================================= -->
-
-  <section class="section philosophy" id="filosofia">
-
-    <div class="container philosophy-grid">
-
-      <div>
-
-        <small>Humanized Infrastructure</small>
-
-        <h3>
-          A tecnologia deve nascer da operação real.
-        </h3>
-
-      </div>
-
-      <div>
-
-        <p>
-          O desperdício não é inevitável. A desorganização operacional não é estratégia.
-          A RETEAR opera através de infraestrutura operacional humanizada, integrando gestão prática, interfaces inteligentes e automação progressiva.
-        </p>
-
-        <p>
-          Nosso objetivo não é apenas digitalizar operações.
-          É estruturar ambientes produtivos capazes de reduzir perdas invisíveis, aumentar previsibilidade e transformar dados operacionais em inteligência sistêmica.
-        </p>
-
-        <div class="logic-flow">
-          <span>Problema produtivo</span>
-          <span>Modelagem operacional</span>
-          <span>Estruturação de dados</span>
-          <span>Automação progressiva</span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ========================================
-       CTA
-  ========================================= -->
-
-  <section class="cta" id="contato">
-
-    <div class="container">
-
-      <div class="cta-box">
-
-        <div class="cta-content">
-
-          <h3>
-            Estruture sua operação.
-          </h3>
+          <h1>
+            Celebrações afetivas feitas com intenção, cuidado e delicadeza.
+          </h1>
 
           <p>
-            A RETEAR® atua através de diagnóstico operacional, rastreabilidade, reorganização produtiva e inteligência aplicada para operações têxteis adaptáveis, rastreáveis e escaláveis.
+            Bolos artesanais, patisserie e experiências gastronômicas desenvolvidas para transformar momentos em memória.
           </p>
 
-		<a 
-		  href="https://wa.me/message/LIKDPGYCWU5CF1"
-		  target="_blank"
-		  rel="noopener noreferrer"
-		  class="btn btn-primary"
-		>
-		  Agendar diagnóstico
-		</a>
+          <div class="hero-actions">
+            <a href="https://wa.me/5541987862994" target="_blank" class="btn-primary">
+              Fazer Pedido
+            </a>
+
+            <a href="#sobre" class="btn-secondary">
+              Conheça a Marca
+            </a>
+          </div>
+
+        </div>
+
+        <div class="hero-image fade-in">
+          <img src="assets/banners/hero.jpg" alt="Bolo artesanal Meu Petit Bolinho" />
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="institutional-section" id="sobre">
+
+      <div class="container institutional-grid">
+
+        <div class="institutional-image">
+          <img src="assets/img/fundadora.jpg" alt="Fundadora Meu Petit Bolinho" />
+        </div>
+
+        <div class="institutional-content">
+
+          <span class="section-tag">
+            Nossa Essência
+          </span>
+
+          <h2>
+            Uma confeitaria construída através do cuidado.
+          </h2>
+
+          <p>
+            Meu Petit Bolinho nasce da intersecção entre alimentação afetiva, estética contemporânea e produção artesanal consciente.
+          </p>
+
+          <p>
+            Cada produto é desenvolvido para transmitir acolhimento, sofisticação e experiência sensorial alinhada à delicadeza das celebrações intimistas.
+          </p>
+
+          <div class="institutional-cards">
+
+            <article class="mini-card">
+              <h3>
+                Produção Limitada
+              </h3>
+              <p>
+                Controle artesanal e atenção aos detalhes.
+              </p>
+            </article>
+
+            <article class="mini-card">
+              <h3>
+                Ingredientes Selecionados
+              </h3>
+              <p>
+                Qualidade e equilíbrio sensorial.
+              </p>
+            </article>
+
+          </div>
 
         </div>
 
       </div>
 
-    </div>
+    </section>
 
-  </section>
 
-  <!-- ========================================
-       FOOTER
-  ========================================= -->
+    <section class="products-section" id="produtos">
 
-  <footer>
+      <div class="container">
 
-    <div class="container footer-inner">
+        <div class="section-header center">
+          <span class="section-tag">
+            Produtos
+          </span>
 
-	<p>
-	  © 2026 RETEAR® — Todos os direitos reservados.<br>
-	  Estrutura conceitual, identidade institucional, nomenclaturas, frameworks operacionais, arquitetura estratégica e conteúdos protegidos por direitos autorais e propriedade intelectual.
-	</p>
+          <h2>
+            Experiências gastronômicas desenvolvidas para ocasiões especiais.
+          </h2>
+        </div>
 
-      <p>
-        VMORDEKAI® Ecosystem Vision<br>
-        Curitiba — PR
-      </p>
-		<a 
-		  href="https://victormordekai.github.io/VMORDEKAI/portfolio.html"
-		  target="_blank"
-		  rel="noopener noreferrer"
-		  class="btn btn-primary"
-		>
-		  Conhecer VMORDEKAI® →
-		</a>
+        <div class="products-grid">
 
+          <article class="product-card">
+            <img src="assets/img/bolo-festa.jpg" alt="Bolo de Festa" />
+
+            <div class="product-content">
+              <h3>Bolos Comemorativos</h3>
+              <p>
+                Estruturas sofisticadas para celebrações intimistas.
+              </p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="assets/img/patisserie.jpg" alt="Patisserie" />
+
+            <div class="product-content">
+              <h3>Patisserie</h3>
+              <p>
+                Delicadeza estética e equilíbrio sensorial.
+              </p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="assets/img/cookies.jpg" alt="Cookies" />
+
+            <div class="product-content">
+              <h3>Cookies Artesanais</h3>
+              <p>
+                Produção limitada e acabamento premium.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="process-section" id="processo">
+
+      <div class="container">
+
+        <div class="section-header center">
+          <span class="section-tag">
+            Processo
+          </span>
+
+          <h2>
+            Organização, cuidado e produção consciente.
+          </h2>
+        </div>
+
+        <div class="timeline-grid">
+
+          <div class="timeline-card">
+            <span>01</span>
+            <h3>Escolha</h3>
+            <p>
+              Definição do produto e da proposta da celebração.
+            </p>
+          </div>
+
+          <div class="timeline-card">
+            <span>02</span>
+            <h3>Personalização</h3>
+            <p>
+              Ajustes de acabamento, sabores e identidade visual.
+            </p>
+          </div>
+
+          <div class="timeline-card">
+            <span>03</span>
+            <h3>Produção</h3>
+            <p>
+              Execução artesanal com controle de qualidade.
+            </p>
+          </div>
+
+          <div class="timeline-card">
+            <span>04</span>
+            <h3>Entrega</h3>
+            <p>
+              Finalização cuidadosa e experiência de recebimento.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="testimonial-section">
+
+      <div class="container">
+
+        <div class="testimonial-box">
+
+          <p>
+            “A experiência vai além do produto. Existe cuidado em cada detalhe, desde o atendimento até a apresentação final.”
+          </p>
+
+          <span>
+            Cliente Meu Petit Bolinho®
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="faq-section" id="faq">
+
+      <div class="container faq-grid">
+
+        <div class="faq-title">
+          <span class="section-tag">
+            FAQ
+          </span>
+
+          <h2>
+            Informações importantes para pedidos.
+          </h2>
+        </div>
+
+        <div class="faq-items">
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Qual o prazo ideal para encomendas?
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Recomendamos solicitações antecipadas para garantir disponibilidade produtiva.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Existem opções personalizadas?
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Sim. Os projetos podem ser adaptados conforme a proposta da celebração.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Vocês possuem opções baby friendly?
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Sim. A linha baby friendly faz parte da identidade da marca.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="cta-section" id="contato">
+
+      <div class="container cta-box">
+
+        <div>
+          <span class="section-tag light">
+            Atendimento
+          </span>
+
+          <h2>
+            Cada celebração merece intenção, cuidado e memória.
+          </h2>
+        </div>
+
+        <a href="https://wa.me/5541987862994" target="_blank" class="btn-light">
+          Solicitar Atendimento
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer class="footer">
+
+    <div class="container footer-grid">
+
+      <div>
+        <img src="assets/logos/logo-light.png" alt="Meu Petit Bolinho" class="footer-logo" />
+
+        <p>
+          Confeitaria autoral contemporânea especializada em experiências afetivas saudáveis.
+        </p>
+      </div>
+
+      <div>
+        <h4>Navegação</h4>
+
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contato</h4>
+
+        <ul>
+          <li>Curitiba • PR</li>
+          <li>
+            <a href="https://instagram.com/meupetitbolinho" target="_blank">
+              Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
 
     </div>
 
   </footer>
-  
-
-<script>
 
 
-  /* ========================================
-     NAV
-  ========================================= */
-
-  const navbar =
-  document.getElementById('navbar');
-
-  const menuToggle =
-  document.getElementById('menu-toggle');
-
-  const navMenu =
-  document.getElementById('nav-menu');
-
-  let lastScroll = 0;
-
-  /* ========================================
-     TOGGLE MENU
-  ========================================= */
-
-  menuToggle.addEventListener('click', (e) => {
-
-    e.stopPropagation();
-
-    navMenu.classList.toggle('active');
-
-  });
-
-  /* ========================================
-     FECHAR AO CLICAR FORA
-  ========================================= */
-
-  document.addEventListener('click', (e) => {
-
-    const clickedOutside =
-      !navMenu.contains(e.target) &&
-      !menuToggle.contains(e.target);
-
-    if (clickedOutside) {
-
-      navMenu.classList.remove('active');
-
-    }
-
-  });
-
-  /* ========================================
-     NAV HIDE + CLOSE MENU ON SCROLL
-  ========================================= */
-
-  window.addEventListener('scroll', () => {
-
-    const currentScroll =
-    window.pageYOffset;
-
-    /* ESCONDE MENU MOBILE */
-
-    navMenu.classList.remove('active');
-
-    /* ESCONDE NAVBAR */
-
-    if (
-      currentScroll > lastScroll &&
-      currentScroll > 120
-    ) {
-
-      navbar.classList.add('hide');
-
-    } else {
-
-      navbar.classList.remove('hide');
-
-    }
-
-    lastScroll = currentScroll;
-
-  });
-
-  /* ========================================
-     HERO GRADIENT
-  ========================================= */
-
-  const orb =
-  document.getElementById('orb');
-
-  const wave =
-  document.getElementById('wave');
-
-  window.addEventListener('mousemove', (e) => {
-
-    const x =
-    (e.clientX / window.innerWidth - .5) * 60;
-
-    const y =
-    (e.clientY / window.innerHeight - .5) * 60;
-
-    orb.style.transform =
-    `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
-
-    const waveOffset =
-    (e.clientX / window.innerWidth - .5) * 8;
-
-    wave.style.transform =
-    `translateY(${Math.abs(y) * .08}px) skewX(${waveOffset}deg)`;
-
-  });
-
-  /* ========================================
-     OPEN POPUP MODULE
-  ========================================= */
-
-  fetch('modules/nr1-popup.html')
-
-    .then(response => response.text())
-
-    .then(data => {
-
-      document.getElementById(
-        'floating-campaign-root'
-      ).innerHTML = data;
-
-      /* CARREGA JS DO POPUP */
-
-      const script =
-      document.createElement('script');
-
-      script.src =
-      'modules/nr1-popup.js';
-
-      document.body.appendChild(script);
-
-    })
-
-    .catch(error => {
-
-      console.error(
-        'Erro ao carregar popup:',
-        error
-      );
-
-    });
-
-</script>
+  <script src="js/main.js"></script>
 
 </body>
 </html>
+```
+
+---
+
+# css/variables.css
+
+```css
+:root {
+
+  --background: #fffaf7;
+  --surface: #ffffff;
+
+  --primary: #c98e8a;
+  --primary-dark: #8d5d59;
+
+  --accent: #e8d5cc;
+  --text: #332927;
+  --text-soft: #726665;
+
+  --border: rgba(0,0,0,0.06);
+
+  --shadow-soft: 0 20px 60px rgba(0,0,0,0.06);
+
+  --radius-lg: 28px;
+  --radius-md: 18px;
+
+  --container: 1240px;
+
+  --transition: all .35s ease;
+
+}
+```
+
+---
+
+# css/style.css
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--background);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.container {
+  width: min(92%, var(--container));
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+p {
+  line-height: 1.8;
+  color: var(--text-soft);
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-wrapper {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-area img {
+  width: 120px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-light {
+  padding: 16px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-secondary {
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 120px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.hero-content h1 {
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  margin: 28px 0;
+}
+
+.hero-content p {
+  max-width: 580px;
+  font-size: 18px;
+}
+
+.hero-actions {
+  margin-top: 42px;
+  display: flex;
+  gap: 18px;
+}
+
+.hero-image img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.eyebrow,
+.section-tag {
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font-size: 12px;
+  color: var(--primary-dark);
+}
+
+section {
+  padding: 140px 0;
+}
+
+.institutional-grid,
+.faq-grid,
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 80px;
+  align-items: center;
+}
+
+.institutional-image img {
+  border-radius: var(--radius-lg);
+}
+
+.institutional-content h2,
+.section-header h2,
+.faq-title h2,
+.cta-box h2 {
+  font-size: clamp(2.5rem,4vw,4rem);
+  margin: 24px 0;
+}
+
+.institutional-cards {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 24px;
+  margin-top: 42px;
+}
+
+.mini-card,
+.product-card,
+.timeline-card,
+.faq-item {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+}
+
+.mini-card {
+  padding: 32px;
+}
+
+.products-grid,
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 32px;
+  margin-top: 70px;
+}
+
+.product-card {
+  overflow: hidden;
+}
+
+.product-content {
+  padding: 28px;
+}
+
+.product-content h3 {
+  margin-bottom: 12px;
+  font-size: 32px;
+}
+
+.timeline-card {
+  padding: 42px;
+}
+
+.timeline-card span {
+  font-size: 14px;
+  letter-spacing: .12em;
+  color: var(--primary-dark);
+}
+
+.timeline-card h3 {
+  margin: 18px 0;
+  font-size: 32px;
+}
+
+.testimonial-box {
+  padding: 80px;
+  border-radius: var(--radius-lg);
+  background: #f6ece7;
+  text-align: center;
+}
+
+.testimonial-box p {
+  font-size: 28px;
+  max-width: 900px;
+  margin: 0 auto 20px;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  border: none;
+  background: none;
+  text-align: left;
+  padding: 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.faq-answer p {
+  padding: 0 28px 28px;
+}
+
+.cta-section {
+  padding-bottom: 160px;
+}
+
+.cta-box {
+  background: var(--primary-dark);
+  padding: 80px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cta-box h2,
+.light {
+  color: white;
+}
+
+.btn-light {
+  background: white;
+  color: var(--text);
+}
+
+.footer {
+  background: #2b2221;
+  padding: 100px 0;
+}
+
+.footer * {
+  color: rgba(255,255,255,0.85);
+}
+
+.footer-logo {
+  width: 140px;
+  margin-bottom: 24px;
+}
+
+.footer ul {
+  list-style: none;
+}
+
+.footer li {
+  margin-bottom: 12px;
+}
+
+.footer a {
+  text-decoration: none;
+}
+```
+
+---
+
+# css/responsive.css
+
+```css
+@media (max-width: 1024px) {
+
+  .hero-grid,
+  .institutional-grid,
+  .faq-grid,
+  .footer-grid,
+  .products-grid,
+  .timeline-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .hero-content h1 {
+    font-size: 4rem;
+  }
+
+  .cta-box {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  section {
+    padding: 100px 0;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .institutional-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .testimonial-box {
+    padding: 50px 30px;
+  }
+
+  .cta-box {
+    padding: 50px 30px;
+  }
+
+}
+```
+
+---
+
+# css/animations.css
+
+```css
+.fade-up {
+  animation: fadeUp 1s ease forwards;
+}
+
+.fade-in {
+  animation: fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+```
+
+---
+
+# js/main.js
+
+```javascript
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+faqQuestions.forEach(question => {
+
+  question.addEventListener('click', () => {
+
+    const answer = question.nextElementSibling;
+
+    if(answer.style.maxHeight) {
+      answer.style.maxHeight = null;
+    } else {
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+
+  });
+
+});
+```
+
+---
+
+# DIREÇÃO FINAL DE IMPLEMENTAÇÃO
+
+## Imagens necessárias
+
+Adicionar:
+
+```plaintext
+/assets/banners/hero.jpg
+/assets/img/fundadora.jpg
+/assets/img/bolo-festa.jpg
+/assets/img/patisserie.jpg
+/assets/img/cookies.jpg
+/assets/logos/logo.png
+/assets/logos/logo-light.png
+```
+
+## Melhorias futuras recomendadas
+
+### Curto prazo
+
+• menu PDF integrado;
+• botão WhatsApp floating;
+• formulário inteligente;
+• catálogo dinâmico;
+• Google Analytics;
+• Pixel Meta.
+
+### Médio prazo
+
+• dashboard operacional;
+• CRM;
+• automação de pedidos;
+• banco de clientes;
+• calendário produtivo.
+
+### Longo prazo
+
+• componentização React;
+• integração API;
+• ERP leve;
+• painel administrativo;
+• automações financeiras;
+• sistema de rastreabilidade.
