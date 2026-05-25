@@ -318,6 +318,62 @@ a:focus {
 }
 */
 
+/* ========================================= */
+/* HERO RIBBON                               */
+/* ========================================= */
+
+.hero-ribbon {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 1.8rem;
+
+  padding: 14px 48px;
+
+  background: rgba(255,255,255,0.14);
+
+  border-top: 1px solid rgba(255,255,255,0.45);
+  border-bottom: 1px solid rgba(255,255,255,0.28);
+
+  backdrop-filter: blur(12px);
+
+  clip-path: polygon(
+	  0% 0%,
+	  calc(100% - 18px) 0%,
+	  calc(100% - 36px) 50%,
+	  calc(100% - 18px) 100%,
+	  0% 100%,
+	  18px 50%
+  );
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.12);
+
+  overflow: hidden;
+}
+
+.hero-ribbon p {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+
+  text-align: center;
+
+  text-shadow:
+    0 1px 2px rgba(0,0,0,0.35),
+    0 0 12px rgba(0,0,0,0.18);
+
+  max-width: 620px;
+}
+
 /* END HERO */
 
 .eyebrow,
