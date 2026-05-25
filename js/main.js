@@ -16,3 +16,35 @@ faqQuestions.forEach(question => {
   });
 
 });
+
+/* ========================================= */
+/* HERO CAROUSEL                             */
+/* ========================================= */
+
+const heroImages = document.querySelectorAll('.hero-image');
+
+let currentHero = 0;
+
+function showNextHeroImage() {
+
+  heroImages[currentHero].classList.remove('active');
+
+  currentHero++;
+
+  if (currentHero >= heroImages.length) {
+    currentHero = 0;
+  }
+
+  heroImages[currentHero].classList.add('active');
+}
+
+/*
+  Alternância automática
+  6 segundos por imagem
+*/
+
+setInterval(showNextHeroImage, 6000);
+
+/* ========================================= */
+/* END HERO CAROUSEL                             */
+/* ========================================= */

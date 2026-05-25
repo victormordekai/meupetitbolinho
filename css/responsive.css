@@ -31,6 +31,22 @@
     padding: 100px 0;
   }
 
+  .hero {
+    min-height: 88vh;
+  }
+
+  .hero-content {
+    padding: 1.5rem;
+  }
+
+  .hero h1 {
+    line-height: 1.12;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+  
   .hero-actions {
     flex-direction: column;
   }

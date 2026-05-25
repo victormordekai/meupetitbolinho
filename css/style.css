@@ -144,6 +144,114 @@ p {
   color: var(--text);
 }
 
+/* ========================================= */
+/* HERO                                      */
+/* ========================================= */
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f1eb;
+}
+
+.hero-carousel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0;
+  transform: scale(1.05);
+
+  transition:
+    opacity 1.8s ease,
+    transform 7s ease;
+
+  will-change: opacity, transform;
+}
+
+.hero-image.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.28),
+      rgba(0,0,0,0.42)
+    );
+
+  z-index: 3;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+
+  max-width: 780px;
+  padding: 2rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+.hero-tag {
+  display: inline-flex;
+  margin-bottom: 1.5rem;
+
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  padding: 0.75rem 1.2rem;
+
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(10px);
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  opacity: 0.92;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ANTIGO HERO ESTÁTICO
+
 .hero-section {
   min-height: 100vh;
   display: flex;
@@ -158,6 +266,7 @@ p {
   gap: 80px;
   align-items: center;
 }
+*/
 
 .hero-content h1 {
   font-size: clamp(3.5rem, 6vw, 6rem);
@@ -175,10 +284,14 @@ p {
   gap: 18px;
 }
 
+/* ANTIGO HERO ESTÁTICO
 .hero-image img {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
 }
+*/
+
+/* END HERO */
 
 .eyebrow,
 .section-tag {
