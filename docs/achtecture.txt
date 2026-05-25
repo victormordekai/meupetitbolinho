@@ -1,0 +1,75 @@
+<!---# Meu Petit Bolinho® — Estrutura Front-End Institucional
+
+## Estrutura de Pastas
+
+```plaintext
+/meupetitbolinho
+│
+├── index.html
+├── /assets
+│   ├── /img
+│   ├── /icons
+│   ├── /logos
+│   ├── /social
+│   └── /banners
+│
+├── /css
+│   ├── variables.css
+│   ├── style.css
+│   ├── responsive.css
+│   └── animations.css
+│
+├── /js
+│   └── main.js
+│
+└── /docs
+    ├── cardapio.pdf
+    └── politica-pedidos.pdf
+```
+
+---
+
+
+# DIREÇÃO FINAL DE IMPLEMENTAÇÃO
+
+## Imagens necessárias
+
+Adicionar:
+
+```plaintext
+/assets/banners/hero.jpg
+/assets/img/fundadora.jpg
+/assets/img/bolo-festa.jpg
+/assets/img/patisserie.jpg
+/assets/img/cookies.jpg
+/assets/logos/logo.png
+/assets/logos/logo-light.png
+```
+
+## Melhorias futuras recomendadas
+
+### Curto prazo
+
+• menu PDF integrado;
+• botão WhatsApp floating;
+• formulário inteligente;
+• catálogo dinâmico;
+• Google Analytics;
+• Pixel Meta.
+
+### Médio prazo
+
+• dashboard operacional;
+• CRM;
+• automação de pedidos;
+• banco de clientes;
+• calendário produtivo.
+
+### Longo prazo
+
+• componentização React;
+• integração API;
+• ERP leve;
+• painel administrativo;
+• automações financeiras;
+• sistema de rastreabilidade.

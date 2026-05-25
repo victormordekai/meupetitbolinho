@@ -21,30 +21,35 @@ faqQuestions.forEach(question => {
 /* HERO CAROUSEL                             */
 /* ========================================= */
 
-const heroImages = document.querySelectorAll('.hero-image');
+document.addEventListener('DOMContentLoaded', () => {
 
-let currentHero = 0;
+  const heroImages = document.querySelectorAll('.hero-image');
 
-function showNextHeroImage() {
+  if (!heroImages.length) return;
 
-  heroImages[currentHero].classList.remove('active');
+  let currentHero = 0;
 
-  currentHero++;
+  function showNextHeroImage() {
 
-  if (currentHero >= heroImages.length) {
-    currentHero = 0;
+    heroImages[currentHero].classList.remove('active');
+
+    currentHero++;
+
+    if (currentHero >= heroImages.length) {
+      currentHero = 0;
+    }
+
+    heroImages[currentHero].classList.add('active');
   }
 
-  heroImages[currentHero].classList.add('active');
-}
+  if (heroImages.length > 1) {
 
-/*
-  Alternância automática
-  6 segundos por imagem
-*/
+    setInterval(showNextHeroImage, 6000);
 
-setInterval(showNextHeroImage, 6000);
+  }
+
+});
 
 /* ========================================= */
-/* END HERO CAROUSEL                             */
+/* END HERO CAROUSEL                         */
 /* ========================================= */
