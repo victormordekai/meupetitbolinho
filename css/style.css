@@ -93,10 +93,11 @@ a:focus {
   width: 120px;
 }
 
+/* NAVBAR ANTIGO OCULTO NA RESONSIVIDADE
 .nav-menu {
   display: flex;
   gap: 40px;
-}
+}*/
 
 .nav-menu a {
   text-decoration: none;
@@ -167,6 +168,40 @@ a:focus {
 .btn-secondary {
   border: 1px solid var(--border);
   color: var(--text);
+}
+
+/* ========================================= */
+/* MOBILE MENU NAVBAR                        */
+/* ========================================= */
+
+.menu-toggle {
+  display: none;
+
+  width: 52px;
+  height: 52px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.82);
+
+  backdrop-filter: blur(14px);
+
+  font-size: 28px;
+  line-height: 1;
+
+  color: var(--text);
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.08);
+}
+
+.menu-toggle:hover {
+  transform: scale(1.04);
 }
 
 /* ========================================= */
