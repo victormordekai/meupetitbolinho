@@ -77,3 +77,20 @@
   }
 
 }
+/* ========================================= */
+/* PRODUCTS MOBILE                           */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+  .products-grid {
+    grid-template-columns: 1fr;
+
+    gap: 24px;
+  }
+
+  .product-card img {
+    aspect-ratio: 4 / 5;
+  }
+
+}
