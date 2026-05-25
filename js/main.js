@@ -1,4 +1,3 @@
-javascript
 const faqQuestions = document.querySelectorAll('.faq-question');
 
 faqQuestions.forEach(question => {
@@ -29,6 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentHero = 0;
 
+  /*
+    Garante estado inicial
+  */
+  heroImages[currentHero].classList.add('active');
+
   function showNextHeroImage() {
 
     heroImages[currentHero].classList.remove('active');
@@ -40,8 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     heroImages[currentHero].classList.add('active');
+
   }
 
+  /*
+    Troca automática
+  */
   if (heroImages.length > 1) {
 
     setInterval(showNextHeroImage, 6000);
