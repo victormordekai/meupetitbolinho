@@ -59,5 +59,35 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ========================================= */
-/* END HERO CAROUSEL                         */
+/* NAVBAR RESPONSIVE                         */
 /* ========================================= */
+
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+
+menuToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
+
+  navMenu.classList.toggle('active');
+});
+
+document.addEventListener('click', (e) => {
+  if (!navMenu.contains(e.target) &&
+      !menuToggle.contains(e.target)) {
+
+    navMenu.classList.remove('active');
+  }
+});
+
+window.addEventListener('scroll', () => {
+  navMenu.classList.remove('active');
+});
+
+document.querySelectorAll('.nav-menu a')
+  .forEach(link => {
+
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+    });
+
+});
