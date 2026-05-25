@@ -1,0 +1,312 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--background);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.container {
+  width: min(92%, var(--container));
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+p {
+  line-height: 1.8;
+  color: var(--text-soft);
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-wrapper {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-area img {
+  width: 120px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-light {
+  padding: 16px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-secondary {
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 120px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.hero-content h1 {
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  margin: 28px 0;
+}
+
+.hero-content p {
+  max-width: 580px;
+  font-size: 18px;
+}
+
+.hero-actions {
+  margin-top: 42px;
+  display: flex;
+  gap: 18px;
+}
+
+.hero-image img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.eyebrow,
+.section-tag {
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font-size: 12px;
+  color: var(--primary-dark);
+}
+
+section {
+  padding: 140px 0;
+}
+
+.institutional-grid,
+.faq-grid,
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 80px;
+  align-items: center;
+}
+
+.institutional-image img {
+  border-radius: var(--radius-lg);
+}
+
+.institutional-content h2,
+.section-header h2,
+.faq-title h2,
+.cta-box h2 {
+  font-size: clamp(2.5rem,4vw,4rem);
+  margin: 24px 0;
+}
+
+.institutional-cards {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 24px;
+  margin-top: 42px;
+}
+
+.mini-card,
+.product-card,
+.timeline-card,
+.faq-item {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+}
+
+.mini-card {
+  padding: 32px;
+}
+
+.products-grid,
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 32px;
+  margin-top: 70px;
+}
+
+.product-card {
+  overflow: hidden;
+}
+
+.product-content {
+  padding: 28px;
+}
+
+.product-content h3 {
+  margin-bottom: 12px;
+  font-size: 32px;
+}
+
+.timeline-card {
+  padding: 42px;
+}
+
+.timeline-card span {
+  font-size: 14px;
+  letter-spacing: .12em;
+  color: var(--primary-dark);
+}
+
+.timeline-card h3 {
+  margin: 18px 0;
+  font-size: 32px;
+}
+
+.testimonial-box {
+  padding: 80px;
+  border-radius: var(--radius-lg);
+  background: #f6ece7;
+  text-align: center;
+}
+
+.testimonial-box p {
+  font-size: 28px;
+  max-width: 900px;
+  margin: 0 auto 20px;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  border: none;
+  background: none;
+  text-align: left;
+  padding: 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.faq-answer p {
+  padding: 0 28px 28px;
+}
+
+.cta-section {
+  padding-bottom: 160px;
+}
+
+.cta-box {
+  background: var(--primary-dark);
+  padding: 80px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cta-box h2,
+.light {
+  color: white;
+}
+
+.btn-light {
+  background: white;
+  color: var(--text);
+}
+
+.footer {
+  background: #2b2221;
+  padding: 100px 0;
+}
+
+.footer * {
+  color: rgba(255,255,255,0.85);
+}
+
+.footer-logo {
+  width: 140px;
+  margin-bottom: 24px;
+}
+
+.footer ul {
+  list-style: none;
+}
+
+.footer li {
+  margin-bottom: 12px;
+}
+
+.footer a {
+  text-decoration: none;
+}

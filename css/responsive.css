@@ -1,0 +1,54 @@
+@media (max-width: 1024px) {
+
+  .hero-grid,
+  .institutional-grid,
+  .faq-grid,
+  .footer-grid,
+  .products-grid,
+  .timeline-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .hero-content h1 {
+    font-size: 4rem;
+  }
+
+  .cta-box {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  section {
+    padding: 100px 0;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .institutional-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .testimonial-box {
+    padding: 50px 30px;
+  }
+
+  .cta-box {
+    padding: 50px 30px;
+  }
+
+}
