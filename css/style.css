@@ -583,8 +583,11 @@ section {
 }
 
 .testimonial-track img {
-  width: 851px;
-  height: 315px;
+  width: auto;
+
+  height: 100%;
+
+  min-width: 851px;
 
   object-fit: cover;
 
