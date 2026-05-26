@@ -818,30 +818,34 @@ section {
   display: grid;
 
   grid-template-columns:
-    1.4fr
-    0.8fr
-    0.8fr;
+    1.8fr
+    0.7fr
+    0.7fr;
 
   gap: 80px;
+  
+  align-items: start;
 }
 
-.footer * {
+.footer {
   color: rgba(255,255,255,0.82);
 }
 
 .footer-brand p {
-  max-width: 420px;
+  padding-right: 60px;
 
-  line-height: 1.9;
+  max-width: 460px;
+  font-size: 0.98rem;
+  line-height: 1.95;
 
   color:
-    rgba(255,255,255,0.62);
+    rgba(255,255,255,0.60);
 }
 
 .footer-logo {
-  width: 160px;
+  width: 180px;
 
-  margin-bottom: 28px;
+  margin-bottom: 36px;
 }
 
 .footer-title {
@@ -894,4 +898,14 @@ section {
 
   color:
     rgba(255,255,255,0.42);
+	
 }
+
+.footer-column a,
+.footer-column li {
+  color: rgba(255,255,255,0.78);
+}
+
+.footer-title {
+  color: rgba(255,255,255,0.42);
+
