@@ -559,7 +559,56 @@ section {
   background: #f3ece6;
 }
 
+/* ========================================= */
+/* TESTIMONIAL MARQUEE                       */
+/* ========================================= */
+
+.testimonial-marquee {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  z-index: 1;
+}
+
+.testimonial-track {
+  display: flex;
+
+  width: max-content;
+  height: 100%;
+
+  animation:
+    testimonialScroll 38s linear infinite;
+}
+
+.testimonial-track img {
+  width: 851px;
+  height: 315px;
+
+  object-fit: cover;
+
+  opacity: 0.92;
+
+  flex-shrink: 0;
+}
+
+/* MOVIMENTO CONTÍNUO */
+
+@keyframes testimonialScroll {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-851px);
+  }
+
+}
 /* IMAGEM DE FUNDO */
+
+/* TESTIMONIAL-ESTÁTICO
 
 .testimonial-background {
   position: absolute;
@@ -574,7 +623,7 @@ section {
   transform: scale(1.03);
 
   z-index: 1;
-}
+}*/
 
 /* OVERLAY CINEMATOGRÁFICO */
 
@@ -651,6 +700,14 @@ section {
   text-transform: uppercase;
 
   color: rgba(45,38,36,0.72);
+}
+
+.testimonial-box p,
+.testimonial-box span {
+
+  transition:
+    opacity 0.4s ease;
+
 }
 
 /*=================*/
