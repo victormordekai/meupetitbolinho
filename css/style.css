@@ -183,7 +183,7 @@ a:focus {
   border: none;
   border-radius: 50%;
 
-  background: rgba(255,255,255,0.82);
+  background: var(--primary);
 
   backdrop-filter: blur(14px);
 
