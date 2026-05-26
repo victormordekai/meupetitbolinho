@@ -424,8 +424,7 @@ section {
 }
 
 .institutional-grid,
-.faq-grid,
-.footer-grid {
+.faq-grid {
   display: grid;
   grid-template-columns: repeat(2,1fr);
   gap: 80px;
@@ -776,18 +775,88 @@ section {
   color: var(--text);
 }
 
+/* ========================================= */
+/* FOOTER                                    */
+/* ========================================= */
+
 .footer {
-  background: #2b2221;
-  padding: 100px 0;
+  position: relative;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #2b2221,
+      #1f1817
+    );
+
+  padding:
+    120px 0 40px;
+
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(255,255,255,0.04),
+      transparent 60%
+    );
+
+  pointer-events: none;
+}
+
+.footer-grid {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    1.4fr
+    0.8fr
+    0.8fr;
+
+  gap: 80px;
 }
 
 .footer * {
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.82);
+}
+
+.footer-brand p {
+  max-width: 420px;
+
+  line-height: 1.9;
+
+  color:
+    rgba(255,255,255,0.62);
 }
 
 .footer-logo {
-  width: 140px;
+  width: 160px;
+
+  margin-bottom: 28px;
+}
+
+.footer-title {
+  display: inline-block;
+
   margin-bottom: 24px;
+
+  font-size: 0.8rem;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(255,255,255,0.45);
 }
 
 .footer ul {
@@ -795,9 +864,34 @@ section {
 }
 
 .footer li {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .footer a {
   text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.footer a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  margin-top: 90px;
+  padding-top: 32px;
+
+  border-top:
+    1px solid rgba(255,255,255,0.08);
+
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 0.82rem;
+
+  letter-spacing: 0.04em;
+
+  color:
+    rgba(255,255,255,0.42);
 }

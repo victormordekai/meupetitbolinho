@@ -3,7 +3,6 @@
   .hero-grid,
   .institutional-grid,
   .faq-grid,
-  .footer-grid,
   .products-grid,
   .timeline-grid {
     grid-template-columns: 1fr;
@@ -22,7 +21,12 @@
     gap: 40px;
     text-align: center;
   }
+  
+  .footer-grid {
+  grid-template-columns: 1fr;
 
+  gap: 50px;
+}
 }
 
 @media (max-width: 768px) {
