@@ -652,9 +652,10 @@ section {
 }
 
 /* CAIXA */
-
 .testimonial-box {
   max-width: 900px;
+
+  min-height: 340px;
 
   margin: 0 auto;
 
@@ -673,11 +674,21 @@ section {
     0 20px 60px rgba(0,0,0,0.18);
 
   text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* TEXTO */
 
 .testimonial-box p {
+  min-height: 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   font-size: clamp(1.6rem, 2vw, 2.2rem);
 
   line-height: 1.6;
