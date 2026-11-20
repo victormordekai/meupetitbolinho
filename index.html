@@ -79,10 +79,10 @@
       content="https://victormordekai.github.io/meupetitbolinho/">
 
 <meta property="og:image"
-      content="https://victormordekai.github.io/meupetitbolinho/assets/banners/sharing-1.jpg">
+      content="https://victormordekai.github.io/meupetitbolinho/assets/banners/share-home.jpg">
 
 <meta property="og:image:secure_url"
-      content="https://victormordekai.github.io/meupetitbolinho/assets/banners/sharing-1.jpg">
+      content="https://victormordekai.github.io/meupetitbolinho/assets/banners/share-home.jpg">
 
 <meta property="og:image:width"
       content="1200">
@@ -92,6 +92,9 @@
 
 <meta property="og:image:type"
       content="image/jpeg">
+
+<meta property="og:image:alt"
+      content="Bolinho decorado com flores pintadas, laço laranja e selo Meu Petit Bolinho">
 
 <meta property="og:locale"
       content="pt_BR">
@@ -113,7 +116,7 @@
         content="Confeitaria autoral premium em Curitiba especializada em bolos sofisticados, pâtisserie artesanal e experiências afetivas.">
 
   <meta name="twitter:image"
-        content="https://victormordekai.github.io/meupetitbolinho/assets/banners/sharing-1.jpg">
+        content="https://victormordekai.github.io/meupetitbolinho/assets/banners/share-home.jpg">
 
   <!-- ====================================== -->
   <!-- FAVICONS -->
@@ -145,62 +148,58 @@
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Sans:wght@300;400;600&family=Quicksand:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
-  <!-- ====================================== -->
-  <!-- CSS -->
-  <!-- ====================================== -->
-  <link rel="stylesheet" href="css/variables.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
-  <link rel="stylesheet" href="css/animations.css" />
-  <link rel="stylesheet" href="css/brand.css" />
-  
+  <!-- CSS: base → componentes → página -->
+  <link rel="stylesheet" href="css/base/tokens.css">
+  <link rel="stylesheet" href="css/base/base.css">
+  <link rel="stylesheet" href="css/base/animations.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/header.css">
+  <link rel="stylesheet" href="css/components/cta.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/hud.css">
+  <link rel="stylesheet" href="css/components/guia.css">
+  <link rel="stylesheet" href="css/components/tamanhos.css">
+  <link rel="stylesheet" href="css/pages/home.css">
+
+  <!-- Dados estruturados (Google) -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Meu Petit Bolinho",
+  "url": "https://victormordekai.github.io/meupetitbolinho/",
+  "image": "https://victormordekai.github.io/meupetitbolinho/assets/banners/share-home.jpg",
+  "logo": "https://victormordekai.github.io/meupetitbolinho/assets/logos/logo.png",
+  "description": "Confeitaria autoral em Curitiba: bolos para festas sob encomenda, linha Carinho para presentear e pâtisserie.",
+  "telephone": "+55 41 98786-2994",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Curitiba",
+    "addressRegion": "PR",
+    "addressCountry": "BR"
+  },
+  "areaServed": "Curitiba",
+  "servesCuisine": "Confeitaria",
+  "priceRange": "R$ 14 – R$ 420",
+  "paymentAccepted": "Cartão de crédito, Cartão de débito, Dinheiro, Pix",
+  "currenciesAccepted": "BRL",
+  "hasMenu": "https://victormordekai.github.io/meupetitbolinho/page/cardapio.html",
+  "sameAs": [
+    "https://instagram.com/meupetitbolinho",
+    "https://www.facebook.com/meupetitbolinho"
+  ]
+}
+  </script>
+
 </head>
 
-<body>
+<body id="top">
 
   <!-- ====================================== -->
   <!-- NAVBAR -->
   <!-- ====================================== -->
 
-<header class="header">
-  <div class="container nav-wrapper">
-
-    <a href="#"
-       class="navbar-brand">
-
-      <img src="assets/logos/logo-light.png"
-           alt="Meu Petit Bolinho Logo">
-
-    </a>
-
-    <nav class="nav-menu" id="navMenu">
-      <a href="cardapio.html">• Cardápio</a>
-      <a href="#sobre">• Sobre</a>
-      <a href="#produtos">• Linhas</a>
-      <a href="#processo">• Processo</a>
-      <a href="#testimonial">• Manifesto</a>
-      <a href="#faq">• FAQ</a>
-      <a href="#contato">• Contato</a>
-    </nav>
-
-    <button class="menu-toggle"
-            id="menuToggle"
-            aria-label="Abrir menu">
-
-      ︙
-
-    </button>
-
-    <a href="https://wa.me/5541987862994"
-       target="_blank" rel="noopener noreferrer"
-       class="btn-primary desktop-cta">
-
-      Fazer Pedido
-
-    </a>
-
-  </div>
-</header>
+<mpb-header></mpb-header>
 
   <main>
 
@@ -269,7 +268,7 @@
 		
 	<br><br>
 		<div class="hero-buttons">
-		  <a href="cardapio.html" class="btn-primary">
+		  <a href="page/cardapio.html" class="btn-primary">
 			Conheça o Cardápio
 		  </a>
 
@@ -359,7 +358,7 @@
 
 	<br><br>
 	  <div class="hero-buttons">
-		  <a href="cardapio.html" class="btn-primary">
+		  <a href="page/cardapio.html" class="btn-primary">
 			Montar minha encomenda
 		  </a>
 		  <a href="#guia" class="btn-secondary">
@@ -559,7 +558,7 @@
 
             <div class="faq-answer">
               <p>
-                Monte a encomenda no <a href="cardapio.html"><u>cardápio do site</u></a> e envie pelo WhatsApp (41) 98786-2994, ou chame no direct do Instagram @meupetitbolinho.
+                Monte a encomenda no <a href="page/cardapio.html"><u>cardápio do site</u></a> e envie pelo WhatsApp (41) 98786-2994, ou chame no direct do Instagram @meupetitbolinho.
               </p>
             </div>
           </div>
@@ -571,120 +570,27 @@
     </section>
 
 
-    <section class="cta-section" id="contato">
-
-      <div class="container cta-box">
-
-        <div>
-          <span class="section-tag light">
-            Atendimento
-          </span>
-
-          <h2>
-            Cada celebração merece intenção, cuidado e memória.
-          </h2>
-        </div>
-
-        <a href="https://wa.me/5541987862994" target="_blank" rel="noopener noreferrer" class="btn-light">
-          Solicitar Atendimento
-        </a>
-
-      </div>
-
-    </section>
+    <mpb-cta></mpb-cta>
 
   </main>
 
 
-	<footer class="footer">
+  <mpb-footer></mpb-footer>
 
-	  <div class="container footer-grid">
-
-		<div class="footer-brand">
-
-		  <img
-			src="assets/logos/logo-light.png"
-			alt="Meu Petit Bolinho"
-			class="footer-logo"
-		  />
-
-		  <p>
-			Confeitaria autoral contemporânea criada para transformar
-			celebrações, descobertas e memórias afetivas em experiências
-			construídas com delicadeza, presença e sabor.
-		  </p>
-
-		</div>
-
-		<div class="footer-column">
-
-		  <span class="footer-title">
-			Navegação
-		  </span>
-
-		  <ul>
-			<li><a href="#">Home</a></li>
-			<li><a href="cardapio.html">Cardápio</a></li>
-			<li><a href="#sobre">Sobre</a></li>
-			<li><a href="#produtos">Produtos</a></li>
-			<li><a href="#processo">Processo</a></li>
-			<li><a href="#testimonial">Manifesto</a></li>
-			<li><a href="#faq">FAQ</a></li>
-		  </ul>
-
-		</div>
-
-		<div class="footer-column">
-
-		  <span class="footer-title">
-			Contato
-		  </span>
-
-		  <ul>
-
-			<li>
-			  <a href="https://wa.me/5541987862994" target="_blank" rel="noopener noreferrer">
-				WhatsApp
-			  </a>
-			</li>
-
-			<li>
-			  <a href="https://instagram.com/meupetitbolinho" target="_blank" rel="noopener noreferrer">
-				Instagram
-			  </a>
-			</li>
-
-			<li>
-			  <a href="https://www.facebook.com/meupetitbolinho" target="_blank" rel="noopener noreferrer">
-				Facebook
-			  </a>
-			</li>
-
-			<li>
-			  Curitiba • PR
-			</li>
-
-		  </ul>
-
-		</div>
-
-	  </div>
-
-	  <div class="footer-bottom">
-
-		<p>
-		  © Meu Petit Bolinho® — Todos os direitos reservados.
-		</p>
-
-	  </div>
-
-	</footer>
+  <mpb-hud></mpb-hud>
 
 
-  <script src="js/main.js"></script>
-  <script src="js/config.js"></script>
+  <!-- JS: configuração → componentes (composer) → dados → módulos → página -->
+  <script src="js/core/config.js"></script>
+  <script src="composer/mpb-header.js"></script>
+  <script src="composer/mpb-cta.js"></script>
+  <script src="composer/mpb-footer.js"></script>
+  <script src="composer/mpb-hud.js"></script>
   <script src="js/data/cardapio.js"></script>
-  <script src="js/home.js"></script>
+  <script src="js/modules/hero-carousel.js"></script>
+  <script src="js/modules/faq.js"></script>
+  <script src="js/modules/manifesto.js"></script>
+  <script src="js/pages/home.js"></script>
 
 </body>
 </html>

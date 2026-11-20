@@ -1,0 +1,193 @@
+/* =========================================================
+   MEU PETIT BOLINHO® · footer
+   Usado por <mpb-footer> (composer/mpb-footer.js).
+   Fundo claro na paleta do cardápio: o logo marrom
+   aparece com contraste e a marca segue até o fim da página.
+   ========================================================= */
+
+.site-footer {
+  position: relative;
+  padding: 110px 0 0;
+  background:
+    radial-gradient(90% 120px at 50% 0, var(--pessego) 0 99%, transparent 100%) top / 100% 120px no-repeat,
+    linear-gradient(to bottom, #fff6ef, #fbe9dd);
+  color: var(--text);
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- grade principal ---------- */
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.site-footer__logo img {
+  width: 150px;
+  transition: transform .4s ease;
+}
+
+.site-footer__logo:hover img { transform: scale(1.04); }
+
+.site-footer__brand p {
+  max-width: 360px;
+  margin: 22px 0 26px;
+  font-size: .95rem;
+  line-height: 1.8;
+  color: var(--text-soft);
+}
+
+.site-footer__social {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+}
+
+.site-footer__social a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--cacau);
+  transition: background .3s ease, color .3s ease, transform .3s ease;
+}
+
+.site-footer__social a:hover {
+  background: var(--cacau);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.site-footer svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.site-footer svg .fill { fill: currentColor; stroke: none; }
+
+.site-footer__title {
+  display: block;
+  margin-bottom: 22px;
+  font-family: var(--font-title);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--cacau);
+}
+
+.site-footer__col ul { list-style: none; display: grid; gap: 14px; }
+
+.site-footer__col a {
+  color: var(--text-soft);
+  font-size: .95rem;
+  background: linear-gradient(var(--cacau), var(--cacau)) 0 100% / 0 1px no-repeat;
+  transition: color .3s ease, background-size .3s ease;
+}
+
+.site-footer__col a:hover,
+.site-footer__col a[aria-current="page"] {
+  color: var(--cacau);
+  background-size: 100% 1px;
+}
+
+.site-footer__contato li {
+  font-size: .82rem;
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+
+.site-footer__contato b {
+  font-size: .98rem;
+  font-weight: 700;
+  color: var(--cacau);
+}
+
+.site-footer__contato a { background: none; }
+
+/* ---------- regras de encomenda ---------- */
+
+.site-footer__regras {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 70px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-footer__regras li {
+  padding: 22px 18px;
+  font-size: .88rem;
+  text-align: center;
+  color: var(--text-soft);
+}
+
+.site-footer__regras li + li { border-left: 1px solid var(--border); }
+.site-footer__regras b { color: var(--cacau); }
+
+/* ---------- barra final: copy + versão ---------- */
+
+.site-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 26px 0 110px;   /* espaço para os atalhos flutuantes (HUD e encomenda) */
+  font-size: .82rem;
+  color: var(--text-soft);
+}
+
+.site-footer__bottom p { line-height: 1.5; color: inherit; }
+
+.site-footer__versao {
+  font-family: var(--font-title);
+  font-weight: 600;
+  letter-spacing: .1em;
+  color: var(--cacau);
+  white-space: nowrap;
+}
+
+.site-footer__topo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-title);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cacau);
+}
+
+.site-footer__topo svg { width: 16px; height: 16px; stroke-width: 2; }
+
+/* ---------- responsivo ---------- */
+
+@media (max-width: 1024px) {
+  .site-footer__grid { grid-template-columns: 1fr 1fr; gap: 44px; }
+  .site-footer__brand { grid-column: 1 / -1; }
+  .site-footer__regras { grid-template-columns: 1fr 1fr; }
+  .site-footer__regras li:nth-child(3) { border-left: 0; }
+  .site-footer__regras li:nth-child(n+3) { border-top: 1px solid var(--border); }
+}
+
+@media (max-width: 600px) {
+  .site-footer { padding-top: 90px; }
+  .site-footer__grid { grid-template-columns: 1fr; text-align: center; }
+  .site-footer__brand p { margin-inline: auto; }
+  .site-footer__social { justify-content: center; }
+  .site-footer__regras { grid-template-columns: 1fr; }
+  .site-footer__regras li + li { border-left: 0; border-top: 1px solid var(--border); }
+  .site-footer__bottom { flex-direction: column; text-align: center; padding-bottom: 110px; }
+}

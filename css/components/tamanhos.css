@@ -1,0 +1,47 @@
+/* =========================================================
+   MEU PETIT BOLINHO® · tamanhos PP · P · M · G
+   Seção compartilhada entre a home e o cardápio.
+   ========================================================= */
+
+/* ---------- tamanhos (home + cardápio) ---------- */
+
+.tamanhos { background: var(--pessego); }
+
+.tamanhos__grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: end;
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.tamanhos__grid li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.tamanhos__grid i {
+  width: calc(150px * var(--s));
+  aspect-ratio: 1 / .62;
+  margin-bottom: 18px;
+  border: 2px solid var(--cacau);
+  border-radius: 12px 12px 6px 6px;
+  background:
+    linear-gradient(var(--cacau), var(--cacau)) 0 33% / 100% 2px no-repeat,
+    linear-gradient(var(--cacau), var(--cacau)) 0 66% / 100% 2px no-repeat,
+    #fff;
+}
+
+.tamanhos__grid b { font-family: var(--font-title); font-size: 1.5rem; color: var(--cacau); }
+.tamanhos__grid span { font-weight: 700; color: var(--cacau); }
+.tamanhos__grid small { color: var(--text-soft); }
+
+.tamanhos__obs { text-align: center; margin-top: 40px; font-style: italic; }
+
+@media (max-width: 1024px) {
+  .tamanhos__grid { grid-template-columns: repeat(2, 1fr); }
+}

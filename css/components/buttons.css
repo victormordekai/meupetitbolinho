@@ -1,0 +1,68 @@
+/* =========================================================
+   MEU PETIT BOLINHO® · botões
+   .btn-primary, .btn-secondary, .btn-light.
+   ========================================================= */
+
+/* ---------- regras originais (style.css) ---------- */
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-light {
+  padding: 16px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-secondary {
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.btn-light {
+  background: white;
+  color: var(--text);
+}
+
+/* ---------- camada de marca (Cardápio 2026) ---------- */
+
+/* ---------- botões ---------- */
+
+.btn-primary,
+.btn-secondary,
+.btn-light {
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: .82rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  border: 0;
+  cursor: pointer;
+}
+
+.btn-primary,
+.btn-primary:visited { background: var(--cacau); color: #fff; }
+.btn-primary:hover,
+.btn-primary:focus { background: var(--cacau-escuro); color: #fff; }
+
+.btn-secondary,
+.btn-secondary:visited { border: 1px solid currentColor; color: inherit; }
+
+.btn-light,
+.btn-light:visited { background: #fff; color: var(--cacau); }

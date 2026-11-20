@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cardápio & Encomendas | Meu Petit Bolinho® · Confeitaria em Curitiba</title>
+  <meta name="description" content="Cardápio 2026 da Meu Petit Bolinho®: bolos para festas em quatro tamanhos, linha Carinho para presentear e pâtisserie. Monte sua encomenda e envie pelo WhatsApp.">
+  <link rel="canonical" href="https://victormordekai.github.io/meupetitbolinho/page/cardapio.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffdac7">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Meu Petit Bolinho®">
+  <meta property="og:title" content="Cardápio & Encomendas | Meu Petit Bolinho®">
+  <meta property="og:description" content="Escolha sabor, tamanho e data. A encomenda segue pronta para o WhatsApp.">
+  <meta property="og:url" content="https://victormordekai.github.io/meupetitbolinho/page/cardapio.html">
+  <meta property="og:image" content="https://victormordekai.github.io/meupetitbolinho/assets/banners/share-cardapio.jpg">
+  <meta property="og:image:secure_url" content="https://victormordekai.github.io/meupetitbolinho/assets/banners/share-cardapio.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Três bolos da Meu Petit Bolinho: Douce Rouge, Primavera e Nutella com Ferrero Rocher">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cardápio & Encomendas | Meu Petit Bolinho®">
+  <meta name="twitter:description" content="Escolha sabor, tamanho e data. A encomenda segue pronta para o WhatsApp.">
+  <meta name="twitter:image" content="https://victormordekai.github.io/meupetitbolinho/assets/banners/share-cardapio.jpg">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/logos/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/logos/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Sans:wght@300;400;600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS: base → componentes → página -->
+  <link rel="stylesheet" href="../css/base/tokens.css">
+  <link rel="stylesheet" href="../css/base/base.css">
+  <link rel="stylesheet" href="../css/base/animations.css">
+  <link rel="stylesheet" href="../css/components/buttons.css">
+  <link rel="stylesheet" href="../css/components/header.css">
+  <link rel="stylesheet" href="../css/components/cta.css">
+  <link rel="stylesheet" href="../css/components/footer.css">
+  <link rel="stylesheet" href="../css/components/hud.css">
+  <link rel="stylesheet" href="../css/components/guia.css">
+  <link rel="stylesheet" href="../css/components/tamanhos.css">
+  <link rel="stylesheet" href="../css/pages/cardapio.css">
+</head>
+
+<body id="top" class="page-cardapio">
+
+  <mpb-header></mpb-header>
+
+  <main>
+
+    <!-- ABERTURA -->
+    <section class="menu-hero">
+      <div class="container menu-hero__inner">
+        <span class="section-tag">Cardápio 2026</span>
+        <h1><span class="script">Cardápio</span> Bolos para festas</h1>
+        <p>Produção limitada • Feito sob encomenda • Ingredientes selecionados</p>
+        <ul class="menu-hero__pills">
+          <li>Massa integral, sem glúten e opções para bebês</li>
+          <li>Possibilidade de açúcar mascavo</li>
+          <li>Recheios à base de frutas reais</li>
+          <li>Opções com baixo teor de cálcio</li>
+        </ul>
+        <p class="menu-hero__claim script">porque um doce também pode ser comida de verdade</p>
+      </div>
+    </section>
+
+    <!-- GUIA -->
+    <section class="guia" aria-labelledby="guia-titulo">
+      <div class="container">
+        <h2 id="guia-titulo" class="guia__title">Como escolher o bolo ideal</h2>
+        <div class="guia__grid" data-guia></div>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section id="catalogo" class="catalogo" aria-labelledby="catalogo-titulo">
+      <div class="container">
+        <header class="catalogo__head">
+          <div>
+            <span class="section-tag">Encomendas</span>
+            <h2 id="catalogo-titulo">Escolha sabor e tamanho.</h2>
+          </div>
+          <label class="busca">
+            <span class="sr-only">Buscar no cardápio</span>
+            <input type="search" placeholder="Buscar: morango, pistache, nozes…" data-busca>
+          </label>
+        </header>
+
+        <div class="filtros">
+          <div class="filtros__row">
+            <span class="filtros__label">Linha</span>
+            <div class="chips" data-linhas role="group" aria-label="Filtrar por linha"></div>
+          </div>
+          <div class="filtros__row">
+            <span class="filtros__label">Tamanho</span>
+            <div class="sizes" data-tamanhos role="group" aria-label="Escolher tamanho do bolo"></div>
+            <span class="filtros__hint" data-tamanho-info aria-live="polite"></span>
+          </div>
+          <div class="filtros__row">
+            <span class="filtros__label">Preço</span>
+            <div class="chips" data-faixas role="group" aria-label="Filtrar por faixa de preço"></div>
+          </div>
+          <div class="filtros__row">
+            <span class="filtros__label">Preferências</span>
+            <div class="chips" data-prefs role="group" aria-label="Filtrar por preferência"></div>
+          </div>
+          <div class="filtros__row filtros__row--end">
+            <label class="filtros__label" for="ordem">Ordem</label>
+            <select id="ordem" class="ordem" data-ordem>
+              <option value="cardapio">Cardápio</option>
+              <option value="menor">Menor preço</option>
+              <option value="maior">Maior preço</option>
+              <option value="nome">Nome (A–Z)</option>
+            </select>
+            <button type="button" class="filtros__reset" data-reset hidden>Limpar filtros</button>
+            <span class="filtros__count" data-count aria-live="polite"></span>
+          </div>
+        </div>
+
+        <div class="mpb-grid" data-catalog></div>
+        <p class="mpb-empty" data-empty hidden>Nenhuma opção nesta combinação. Tente outro tamanho ou limpe os filtros.</p>
+
+        <noscript>
+          <p class="mpb-empty">Para montar a encomenda, ative o JavaScript ou chame no WhatsApp (41) 98786-2994.</p>
+        </noscript>
+      </div>
+    </section>
+
+    <!-- TAMANHOS -->
+    <section class="tamanhos" id="tamanhos" aria-labelledby="tamanhos-titulo">
+      <div class="container">
+        <div class="section-header center">
+          <span class="section-tag">Tamanhos</span>
+          <h2 id="tamanhos-titulo">Quantas fatias a sua festa pede?</h2>
+        </div>
+        <ol class="tamanhos__grid">
+          <li style="--s:.55"><i></i><b>PP</b><span>13 cm</span><small>até 7 fatias · aprox. 1 kg</small></li>
+          <li style="--s:.65"><i></i><b>P</b><span>15 cm</span><small>até 15 fatias · aprox. 1,6 kg</small></li>
+          <li style="--s:.82"><i></i><b>M</b><span>20 cm</span><small>até 25 fatias · 2,5 a 3 kg</small></li>
+          <li style="--s:1"><i></i><b>G</b><span>25 cm</span><small>até 35 fatias · 3,5 a 4 kg</small></li>
+        </ol>
+        <p class="tamanhos__obs">Bolos feitos com 3 camadas de massa e 2 de recheio.</p>
+      </div>
+    </section>
+
+    <!-- COMO ENCOMENDAR -->
+    <section id="como-encomendar" class="passos" aria-labelledby="passos-titulo">
+      <div class="container">
+        <div class="section-header center">
+          <span class="section-tag">Como encomendar</span>
+          <h2 id="passos-titulo">Do cardápio ao WhatsApp em três passos.</h2>
+        </div>
+        <ol class="passos__grid">
+          <li><span>01</span><h3>Monte a encomenda</h3><p>Escolha o tamanho e use o <b>+</b> nos sabores. Adicione trufas, macarons e personalizações.</p></li>
+          <li><span>02</span><h3>Escolha a data</h3><p>Pedimos no mínimo <b>5 dias de antecedência</b> para todos os pedidos.</p></li>
+          <li><span>03</span><h3>Envie pelo WhatsApp</h3><p>A encomenda chega pronta para a Manoella. Confirmação com <b>sinal de 50%</b> via cartão, dinheiro ou Pix.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <mpb-cta titulo="Prefere conversar antes?"
+             texto="WhatsApp (41) 98786-2994 ou direct do Instagram @meupetitbolinho."
+             botao="Chamar no WhatsApp"></mpb-cta>
+
+  </main>
+
+  <!-- FICHA DO PRODUTO -->
+  <dialog class="ficha" data-ficha aria-labelledby="ficha-titulo">
+    <button type="button" class="ficha__close" data-ficha-fechar aria-label="Fechar">✕</button>
+    <div class="ficha__body" data-ficha-body></div>
+  </dialog>
+
+  <mpb-footer></mpb-footer>
+
+  <mpb-hud></mpb-hud>
+
+  <!-- JS: configuração → componentes (composer) → dados → módulos → página -->
+  <script src="../js/core/config.js"></script>
+  <script src="../composer/mpb-header.js"></script>
+  <script src="../composer/mpb-cta.js"></script>
+  <script src="../composer/mpb-footer.js"></script>
+  <script src="../composer/mpb-hud.js"></script>
+  <script src="../js/data/cardapio.js"></script>
+  <script src="../js/pages/cardapio.js"></script>
+</body>
+</html>

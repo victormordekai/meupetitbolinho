@@ -21,39 +21,46 @@ O objetivo estrutural consiste em transformar a presença digital da marca em um
 
 # Estrutura do Projeto
 
-```bash
+Versão atual: **V002.0.0 26.11** (exibida no footer; editar em `js/core/config.js`).
+
+```plaintext
 /meupetitbolinho
 │
-├── index.html
+├── index.html                 única página na raiz
+├── sitemap.xml
 │
-├── /assets
-│   ├── /css
-│   │   ├── variables.css
-│   │   ├── style.css
-│   │   ├── responsive.css
-│   │   └── animations.css
-│   │
-│   ├── /js
-│   │   └── main.js
-│   │
-│   ├── /images
-│   │   ├── hero/
-│   │   ├── editorial/
-│   │   ├── products/
-│   │   ├── branding/
-│   │   └── textures/
-│   │
-│   ├── /icons
-│   └── /fonts
+├── page/                      demais páginas
+│   └── cardapio.html          catálogo filtrável + encomenda pelo WhatsApp
 │
-├── /seo
-│   ├── sitemap.xml
-│   ├── robots.txt
-│   └── manifest.json
+├── composer/                  elementos comuns (Web Components)
+│   ├── mpb-header.js          <mpb-header>  navbar
+│   ├── mpb-footer.js          <mpb-footer>  footer + versão
+│   ├── mpb-cta.js             <mpb-cta>     chamada de atendimento (#contato)
+│   └── mpb-hud.js             <mpb-hud>     atalhos flutuantes (Instagram e Cardápio)
 │
-└── README.md
+├── css/
+│   ├── base/                  tokens.css · base.css · animations.css
+│   ├── components/            buttons · header · footer · cta · hud · guia · tamanhos
+│   └── pages/                 home.css · cardapio.css
+│
+├── js/
+│   ├── core/config.js         marca, contatos, navegação, regras, versão (fonte única)
+│   ├── data/cardapio.js       Cardápio 2026: linhas, tamanhos, produtos, adicionais
+│   ├── modules/               hero-carousel · faq · manifesto
+│   └── pages/                 home.js · cardapio.js
+│
+├── assets/
+│   ├── banners/               abertura, manifesto e imagens de compartilhamento
+│   ├── img/                   fotos institucionais
+│   ├── logos/                 logo, favicon e ícone (HUD)
+│   └── shop/                  fotos dos produtos do cardápio
+│
+└── docs/                      registros de arquitetura
 ```
 
+Ordem de carregamento em toda página: `css/base` → `css/components` → `css/pages`;
+`js/core/config.js` → `composer/*` → `js/data` → `js/modules` → `js/pages`.
+Não há módulos ES nem build: o site abre direto no navegador ou no GitHub Pages.
 ---
 
 # Direção Estratégica

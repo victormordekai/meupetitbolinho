@@ -1,0 +1,51 @@
+/* =========================================================
+   MEU PETIT BOLINHO® · chamada de atendimento
+   Usado por <mpb-cta> (composer/mpb-cta.js).
+   ========================================================= */
+
+/* ---------- regras originais (style.css) ---------- */
+
+.cta-section {
+  padding-bottom: 160px;
+}
+
+.cta-box {
+  background: var(--primary-dark);
+  padding: 80px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cta-box h2,
+.light {
+  color: white;
+}
+
+/* ---------- responsivo (responsive.css) ---------- */
+
+@media (max-width: 1024px) {
+
+  .cta-box {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .cta-box {
+    padding: 50px 30px;
+  }
+
+}
+
+/* ---------- camada de marca (Cardápio 2026) ---------- */
+
+.cta-box { background: var(--cacau); }
+.cta-box h2 { color: #fff; }
+.cta-sub { color: rgba(255, 255, 255, .8); margin-top: -8px; }
+.section-tag.light { color: var(--manteiga); }

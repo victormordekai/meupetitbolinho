@@ -1,0 +1,49 @@
+/* =========================================================
+   MEU PETIT BOLINHO® · guia "como escolher"
+   Seção compartilhada entre a home e o cardápio.
+   ========================================================= */
+
+/* ---------- guia "como escolher" (home + cardápio) ---------- */
+
+.guia { padding: 90px 0; background: var(--nevoa); }
+
+.guia__title {
+  text-align: center;
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 36px;
+}
+
+.guia__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.guia-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: #fff;
+  border-top: 6px solid var(--linha);
+  text-align: left;
+  font: inherit;
+  color: var(--text);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.guia-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+.guia-item b { color: var(--cacau); font-weight: 700; }
+
+@media (max-width: 560px) {
+  .guia { padding: 70px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guia-item { transition: none; }
+}

@@ -1,0 +1,139 @@
+/* =========================================================
+   MEU PETIT BOLINHO® · HUD de atalhos
+   Usado por <mpb-hud> (composer/mpb-hud.js).
+   Canto inferior esquerdo: Instagram em cima, Cardápio embaixo.
+   O botão do cardápio "treme" a cada 5 s; para ao passar o
+   mouse/focar e não anima com prefers-reduced-motion.
+   ========================================================= */
+
+.hud {
+  position: fixed;
+  left: 22px;
+  bottom: 22px;
+  z-index: 1090;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.hud__btn {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  box-shadow: 0 12px 30px rgba(94, 40, 18, .22);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.hud__btn:hover,
+.hud__btn:focus-visible {
+  transform: scale(1.08);
+  box-shadow: 0 16px 36px rgba(94, 40, 18, .3);
+}
+
+/* ---------- Instagram ---------- */
+
+.hud__btn--insta {
+  width: 48px;
+  height: 48px;
+  margin-left: 6px;
+  background: #fff;
+  color: var(--cacau);
+  border: 1px solid var(--border);
+}
+
+.hud__btn--insta svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.hud__btn--insta svg .fill { fill: currentColor; stroke: none; }
+
+/* ---------- Cardápio (logo tremendo) ---------- */
+
+.hud__btn--cardapio {
+  width: 62px;
+  height: 62px;
+  background: var(--pessego);
+  border: 2px solid #fff;
+  animation: hudTremor 5s ease-in-out infinite;
+  transform-origin: 50% 80%;
+}
+
+.hud__btn--cardapio img { width: 40px; height: 40px; }
+
+/* anel pulsando atrás do botão */
+.hud__btn--cardapio::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid var(--cacau);
+  opacity: 0;
+  animation: hudAnel 5s ease-out infinite;
+  pointer-events: none;
+}
+
+.hud__btn--cardapio:hover,
+.hud__btn--cardapio:focus-visible { animation-play-state: paused; }
+.hud__btn--cardapio:hover::before { animation: none; }
+
+@keyframes hudTremor {
+  0%, 76%, 100% { transform: rotate(0); }
+  79% { transform: rotate(-14deg) scale(1.06); }
+  82% { transform: rotate(12deg) scale(1.06); }
+  85% { transform: rotate(-10deg) scale(1.06); }
+  88% { transform: rotate(8deg) scale(1.04); }
+  91% { transform: rotate(-4deg); }
+  94% { transform: rotate(2deg); }
+}
+
+@keyframes hudAnel {
+  0%, 76% { transform: scale(1); opacity: 0; }
+  78% { opacity: .55; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* ---------- rótulo ao passar o mouse ---------- */
+
+.hud__label {
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--cacau);
+  color: #fff;
+  font-family: var(--font-title);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-6px, -50%);
+  transition: opacity .25s ease, transform .25s ease;
+  pointer-events: none;
+}
+
+.hud__btn:hover .hud__label,
+.hud__btn:focus-visible .hud__label {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+@media (max-width: 760px) {
+  .hud { left: 14px; bottom: 14px; gap: 10px; }
+  .hud__btn--cardapio { width: 56px; height: 56px; }
+  .hud__btn--cardapio img { width: 36px; height: 36px; }
+  .hud__label { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hud__btn--cardapio,
+  .hud__btn--cardapio::before { animation: none; }
+}
