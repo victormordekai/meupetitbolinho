@@ -60,7 +60,7 @@
 
   <!-- Theme -->
   <meta name="theme-color"
-        content="#f6efe9">
+        content="#ffdac7">
 
 <!-- ====================================== -->
 <!-- OPEN GRAPH -->
@@ -142,7 +142,7 @@
   <!-- TIPOGRAFIA -->
   <!-- ====================================== -->
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Sans:wght@300;400;600&family=Quicksand:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
   <!-- ====================================== -->
@@ -152,6 +152,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
   <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/brand.css" />
   
 </head>
 
@@ -173,8 +174,9 @@
     </a>
 
     <nav class="nav-menu" id="navMenu">
+      <a href="cardapio.html">• Cardápio</a>
       <a href="#sobre">• Sobre</a>
-      <a href="#produtos">• Produtos</a>
+      <a href="#produtos">• Linhas</a>
       <a href="#processo">• Processo</a>
       <a href="#testimonial">• Manifesto</a>
       <a href="#faq">• FAQ</a>
@@ -267,7 +269,7 @@
 		
 	<br><br>
 		<div class="hero-buttons">
-		  <a href="https://www.canva.com/design/DAG-NW3uYPk/7lJJKNc_4Q_q89a6cAE0Og/view" class="btn-primary" target="_blank" rel="noopener noreferrer">
+		  <a href="cardapio.html" class="btn-primary">
 			Conheça o Cardápio
 		  </a>
 
@@ -341,70 +343,38 @@
     </section>
 
 
-    <section class="products-section" id="produtos">
+    <section class="products-section linhas-section" id="produtos">
 
       <div class="container">
 
         <div class="section-header center">
-          <span class="section-tag">
-            Produtos
-          </span>
-
-          <h2>
-            Experiências gastronômicas desenvolvidas para ocasiões especiais.
-          </h2>
+          <span class="section-tag">Cardápio 2026</span>
+          <h2>Seis linhas para cada tipo de celebração.</h2>
         </div>
 
-        <div class="products-grid">
-
-          <article class="product-card">
-            <img src="assets/img/bolo-festa.jpg" alt="Bolo de Festa" loading="lazy" decoding="async" />
-
-            <div class="product-content">
-              <h3>Bolos Comemorativos</h3>
-              <p>
-                Afetividade, delicadeza e sabor para celebrações intimistas.
-              </p>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <img src="assets/img/patisserie-3.jpg" alt="Patisserie" loading="lazy" decoding="async" />
-
-            <div class="product-content">
-              <h3>Patisserie</h3>
-              <p>
-                Bolos pensados para aniversários, encontros e momentos especiais.
-              </p>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <img src="assets/img/cookies.jpg" alt="Cookies" loading="lazy" decoding="async" />
-
-            <div class="product-content">
-              <h3>Cookies Artesanais</h3>
-              <p>
-                Sabores delicados preparados para diferentes ocasiões.
-              </p>
-            </div>
-          </article>
-
-        </div>
+        <!-- cards gerados por js/home.js a partir de js/data/cardapio.js -->
+        <div class="linhas-grid" data-linhas-home></div>
 
       </div>
 
-	<br><br>	  
+	<br><br>
 	  <div class="hero-buttons">
-		  <a href="https://www.canva.com/design/DAG-NW3uYPk/7lJJKNc_4Q_q89a6cAE0Og/view" class="btn-primary" target="_blank" rel="noopener noreferrer">
-			Conheça o Cardápio
+		  <a href="cardapio.html" class="btn-primary">
+			Montar minha encomenda
 		  </a>
-
-		  <a href="#sobre" class="btn-secondary">
-			Sobre a Marca
+		  <a href="#guia" class="btn-secondary">
+			Como escolher
 		  </a>
-	  </div>	  
+	  </div>
 
+    </section>
+
+
+    <section class="guia" id="guia" aria-labelledby="guia-titulo">
+      <div class="container">
+        <h2 id="guia-titulo" class="guia__title">Como escolher o bolo ideal</h2>
+        <div class="guia__grid" data-guia-home></div>
+      </div>
     </section>
 
 
@@ -418,7 +388,7 @@
           </span>
 
           <h2>
-            Organização, cuidado e produção consciente.
+            Do pedido à celebração.
           </h2>
         </div>
 
@@ -428,7 +398,7 @@
             <span>01</span>
             <h3>Escolha</h3>
             <p>
-              Definição do produto e da proposta da celebração.
+              Sabor e tamanho no cardápio: do PP (13 cm, até 7 fatias) ao G (25 cm, até 35 fatias).
             </p>
           </div>
 
@@ -436,23 +406,23 @@
             <span>02</span>
             <h3>Personalização</h3>
             <p>
-              Ajustes de acabamento, sabores e identidade visual.
+              Flores naturais, frutas frescas, topo de bolo, drip ou vintage cake, trufas e macarons.
             </p>
           </div>
 
           <div class="timeline-card">
             <span>03</span>
-            <h3>Produção</h3>
+            <h3>Reserva</h3>
             <p>
-              Execução artesanal com controle de qualidade.
+              Pedidos com no mínimo 5 dias de antecedência e sinal de 50% do valor total.
             </p>
           </div>
 
           <div class="timeline-card">
             <span>04</span>
-            <h3>Entrega</h3>
+            <h3>Produção</h3>
             <p>
-              Finalização cuidadosa e experiência de recebimento.
+              Produção limitada, feita sob encomenda, com ingredientes selecionados.
             </p>
           </div>
 
@@ -521,7 +491,7 @@
 
             <div class="faq-answer">
               <p>
-                Recomendamos solicitações antecipadas para garantir disponibilidade produtiva.
+                Solicitamos no mínimo 5 dias de antecedência para todos os pedidos, com pagamento antecipado de 50% do valor total.
               </p>
             </div>
           </div>
@@ -533,7 +503,7 @@
 
             <div class="faq-answer">
               <p>
-                Sim. Os projetos podem ser adaptados conforme a proposta da celebração.
+                Sim. Há decoração extra (flores naturais, frutas frescas, topo de bolo, drip cake, vintage cake, biscoito personalizado) e ingredientes opcionais como massa sem glúten ou integral e chocolate belga. Valores sob consulta.
               </p>
             </div>
           </div>
@@ -566,6 +536,30 @@
             <div class="faq-answer">
               <p>
                 Sim. A linha baby friendly faz parte da identidade da marca.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Quais são as formas de pagamento?
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Cartão de crédito ou débito, dinheiro ou Pix. O pedido é confirmado com o sinal de 50%.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Como faço o pedido?
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Monte a encomenda no <a href="cardapio.html"><u>cardápio do site</u></a> e envie pelo WhatsApp (41) 98786-2994, ou chame no direct do Instagram @meupetitbolinho.
               </p>
             </div>
           </div>
@@ -630,6 +624,7 @@
 
 		  <ul>
 			<li><a href="#">Home</a></li>
+			<li><a href="cardapio.html">Cardápio</a></li>
 			<li><a href="#sobre">Sobre</a></li>
 			<li><a href="#produtos">Produtos</a></li>
 			<li><a href="#processo">Processo</a></li>
@@ -687,6 +682,9 @@
 
 
   <script src="js/main.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/data/cardapio.js"></script>
+  <script src="js/home.js"></script>
 
 </body>
 </html>

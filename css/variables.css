@@ -1,18 +1,35 @@
+/* =========================================================
+   MEU PETIT BOLINHO® · tokens da marca
+   Paleta extraída do Cardápio 2026 (Canva).
+   ========================================================= */
+
 :root {
 
-  --background: #fffaf7;
+  /* Paleta do cardápio */
+  --manteiga: #fbe2b9;     /* capa / Chocolat / Especiais */
+  --pessego:  #ffdac7;     /* Tradicionais / Tamanhos / Informações */
+  --salvia:   #d2ddbd;     /* Leves e Frutados */
+  --nevoa:    #dee6e8;     /* Favoritos / Personalize */
+  --rosa:     #e9a7a0;     /* detalhes do ícone do bolinho */
+  --folha:    #7fa35b;     /* selo "Mais pedido" */
+  --cacau:    #843b20;     /* texto e linhas do cardápio */
+  --cacau-escuro: #5e2812;
+  --creme:    #fffaf5;
+
+  /* Papéis (usados por style.css) */
+  --background: var(--creme);
   --surface: #ffffff;
 
-  --primary: #c98e8a;
-  --primary-dark: #8d5d59;
+  --primary: var(--cacau);
+  --primary-dark: var(--cacau-escuro);
 
-  --accent: #e8d5cc;
-  --text: #332927;
-  --text-soft: #726665;
+  --accent: var(--pessego);
+  --text: #4a2a1e;
+  --text-soft: #7a5a4c;
 
-  --border: rgba(0,0,0,0.06);
+  --border: rgba(132, 59, 32, 0.12);
 
-  --shadow-soft: 0 20px 60px rgba(0,0,0,0.06);
+  --shadow-soft: 0 20px 60px rgba(94, 40, 18, 0.08);
 
   --radius-lg: 28px;
   --radius-md: 18px;
@@ -21,4 +38,8 @@
 
   --transition: all .35s ease;
 
+  /* Tipografia (aproximações Google Fonts das fontes do cardápio) */
+  --font-script: 'Allura', cursive;                 /* "Cardápio", "Obrigada!" */
+  --font-title: 'Josefin Sans', sans-serif;         /* títulos espaçados em caixa alta */
+  --font-body: 'Quicksand', sans-serif;             /* textos */
 }
