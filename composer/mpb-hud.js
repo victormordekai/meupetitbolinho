@@ -4,6 +4,8 @@
    2. Cardápio — ícone da logo, "tremendo" a cada poucos
       segundos para chamar atenção. Some na própria página
       do cardápio.
+   Rótulos: aparecem ao passar o mouse e, no celular, ao tocar.
+   Entram depois que a página rola 40% da tela.
 
    Uso:  <mpb-hud></mpb-hud>
    Estilo: css/components/hud.css
@@ -36,6 +38,39 @@ class MpbHud extends HTMLElement {
         </a>`}
 
       </nav>`;
+
+    this.#rotuloNoToque();
+    this.#aparecerAoRolar();
+  }
+
+  /* Some no começo da página (para não cobrir a abertura e seus botões)
+     e entra quando o visitante rola 40% da altura da tela. */
+  #aparecerAoRolar() {
+    const hud = this.querySelector('.hud');
+    let pendente = false;
+    const avaliar = () => {
+      pendente = false;
+      hud.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.4);
+    };
+    window.addEventListener('scroll', () => {
+      if (!pendente) { pendente = true; requestAnimationFrame(avaliar); }
+    }, { passive: true });
+    avaliar();
+  }
+
+  /* No celular não existe "passar o mouse": o rótulo aparece ao encostar o dedo
+     e some sozinho depois de alguns instantes. */
+  #rotuloNoToque() {
+    const timers = new WeakMap();
+    this.addEventListener('pointerdown', e => {
+      if (e.pointerType === 'mouse') return;
+      const btn = e.target.closest('.hud__btn');
+      if (!btn) return;
+      this.querySelectorAll('.hud__btn.show-label').forEach(b => b !== btn && b.classList.remove('show-label'));
+      btn.classList.add('show-label');
+      clearTimeout(timers.get(btn));
+      timers.set(btn, setTimeout(() => btn.classList.remove('show-label'), 1800));
+    });
   }
 }
 

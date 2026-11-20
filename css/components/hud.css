@@ -15,6 +15,18 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
+
+  /* fora da tela até rolar um pouco (composer/mpb-hud.js) */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-24px);
+  transition: opacity .45s ease, transform .55s cubic-bezier(.2, .8, .2, 1), visibility .45s ease;
+}
+
+.hud.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
 }
 
 .hud__btn {
@@ -26,7 +38,10 @@
   transition: transform .3s ease, box-shadow .3s ease;
 }
 
-.hud__btn:hover,
+@media (hover: hover) {
+  .hud__btn:hover { transform: scale(1.08); box-shadow: 0 16px 36px rgba(94, 40, 18, .3); }
+}
+
 .hud__btn:focus-visible {
   transform: scale(1.08);
   box-shadow: 0 16px 36px rgba(94, 40, 18, .3);
@@ -79,7 +94,8 @@
 }
 
 .hud__btn--cardapio:hover,
-.hud__btn--cardapio:focus-visible { animation-play-state: paused; }
+.hud__btn--cardapio:focus-visible,
+.hud__btn--cardapio.show-label { animation-play-state: paused; }
 .hud__btn--cardapio:hover::before { animation: none; }
 
 @keyframes hudTremor {
@@ -120,20 +136,32 @@
   pointer-events: none;
 }
 
-.hud__btn:hover .hud__label,
-.hud__btn:focus-visible .hud__label {
+/* mouse: rótulo no hover (só em aparelhos com hover real, para não "grudar" no toque) */
+@media (hover: hover) {
+  .hud__btn:hover .hud__label {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+
+/* teclado e toque */
+.hud__btn:focus-visible .hud__label,
+.hud__btn.show-label .hud__label {
   opacity: 1;
   transform: translate(0, -50%);
 }
+
+.hud__btn.show-label { transform: scale(1.08); }
 
 @media (max-width: 760px) {
   .hud { left: 14px; bottom: 14px; gap: 10px; }
   .hud__btn--cardapio { width: 56px; height: 56px; }
   .hud__btn--cardapio img { width: 36px; height: 36px; }
-  .hud__label { display: none; }
+  .hud__label { font-size: .64rem; padding: 6px 11px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hud { transition: opacity .2s ease, visibility .2s ease; transform: none; }
   .hud__btn--cardapio,
   .hud__btn--cardapio::before { animation: none; }
 }

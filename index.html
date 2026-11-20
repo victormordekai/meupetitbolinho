@@ -148,6 +148,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Sans:wght@300;400;600&family=Quicksand:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
+  <!-- primeira foto da abertura com prioridade -->
+  <link rel="preload" as="image" href="assets/banners/hero-1.jpg" fetchpriority="high">
+
   <!-- CSS: base → componentes → página -->
   <link rel="stylesheet" href="css/base/tokens.css">
   <link rel="stylesheet" href="css/base/base.css">
@@ -204,81 +207,48 @@
   <main>
 
     <!-- HERO -->
-	<section class="hero">
-	  <div class="hero-carousel" aria-hidden="true">
+    <section class="hero" aria-roledescription="carrossel" aria-label="Fotos da confeitaria">
 
-		<div class="hero-image active"
-		  style="background-image: url('assets/banners/hero-1.jpg');">
-		</div>
+      <div class="hero-carousel" aria-hidden="true">
+      <div class="hero-image active" style="background-image: url('assets/banners/hero-1.jpg');"></div>
+      <div class="hero-image" data-bg="assets/banners/hero-2.jpg"></div>
+      <div class="hero-image" data-bg="assets/banners/hero-3.jpg"></div>
+      <div class="hero-image" data-bg="assets/banners/hero-4.jpg"></div>
+      <div class="hero-image" data-bg="assets/banners/hero-5.jpg"></div>
+      <div class="hero-image" data-bg="assets/banners/hero-6.jpg"></div>
+      <div class="hero-image" data-bg="assets/banners/hero-7.jpg"></div>
+      <div class="hero-image" data-bg="assets/banners/hero-8.jpg"></div>
+      <div class="hero-image" data-bg="assets/banners/hero-9.jpg"></div>
+      <div class="hero-image" data-bg="assets/banners/hero-10.jpg"></div>
+      </div>
 
-		<div class="hero-image"
-		  data-bg="assets/banners/hero-2.jpg">
-		</div>
+      <div class="hero-overlay"></div>
 
-		<div class="hero-image"
-		  data-bg="assets/banners/hero-3.jpg">
-		</div>
+      <div class="hero-content">
 
-		<div class="hero-image"
-		  data-bg="assets/banners/hero-4.jpg">
-		</div>
+        <span class="hero-tag hero-in" style="--d:.15s">Confeitaria autoral contemporânea</span>
 
-		<div class="hero-image"
-		  data-bg="assets/banners/hero-5.jpg">
-		</div>
+        <h1 class="hero-title hero-in" style="--d:.35s">
+          Experiências afetivas transformadas em confeitaria premium
+        </h1>
 
-		<div class="hero-image"
-		  data-bg="assets/banners/hero-6.jpg">
-		</div>
+        <div class="hero-ribbon hero-in" style="--d:.6s">
+          <span>Sabores desenvolvidos para momentos especiais.</span>
+        </div>
 
-		<div class="hero-image"
-		  data-bg="assets/banners/hero-7.jpg">
-		</div>
+        <div class="hero-buttons hero-in" style="--d:.8s">
+          <a href="page/cardapio.html" class="btn-primary">Conheça o Cardápio</a>
+          <a href="#sobre" class="btn-secondary">Sobre a Marca</a>
+        </div>
 
-		<div class="hero-image"
-		  data-bg="assets/banners/hero-8.jpg">
-		</div>
+      </div>
 
-		<div class="hero-image"
-		  data-bg="assets/banners/hero-9.jpg">
-		</div>
+      <!-- indicadores gerados por js/modules/hero-carousel.js -->
+      <div class="hero-dots" data-hero-dots role="group" aria-label="Escolher foto"></div>
 
-		<div class="hero-image"
-		  data-bg="assets/banners/hero-10.jpg">
-		</div>
+      <a href="#sobre" class="hero-scroll" aria-label="Rolar para conhecer a marca"><span></span></a>
 
-	  </div>
-
-	  <div class="hero-overlay"></div>
-
-	  <div class="hero-content fade-in">
-		<span class="hero-tag">
-		  Confeitaria autoral contemporânea
-		</span>
-
-		<h1>
-		  Experiências afetivas transformadas em confeitaria premium
-		</h1>
-
-	<div class="hero-ribbon">
-	  <span>
-		Sabores desenvolvidos para momentos especiais.
-	  </span>
-	</div>
-		
-	<br><br>
-		<div class="hero-buttons">
-		  <a href="page/cardapio.html" class="btn-primary">
-			Conheça o Cardápio
-		  </a>
-
-		  <a href="#sobre" class="btn-secondary">
-			Sobre a Marca
-		  </a>
-		</div>
-
-	  </div>
-	</section>
+    </section>
 
 
     <section class="institutional-section" id="sobre">
@@ -432,35 +402,28 @@
     </section>
 
 
-<section class="testimonial-section" id="testimonial">
+<section class="testimonial-section" id="testimonial" aria-label="Manifesto da marca">
 
-  <div class="testimonial-marquee" aria-hidden="true">
-
-    <div class="testimonial-track">
-
-      <img src="assets/banners/memoria-afetiva-1.jpg" alt="">
-      <img src="assets/banners/memoria-afetiva-1.jpg" alt="">
-      <img src="assets/banners/memoria-afetiva-1.jpg" alt="">
-
-    </div>
-
-  </div>
+  <!-- mosaico de fotos gerado por js/modules/manifesto.js a partir do cardápio -->
+  <div class="mosaic" data-mosaic aria-hidden="true"></div>
 
   <div class="testimonial-overlay"></div>
 
   <div class="container">
 
-    <div class="testimonial-box">
+    <figure class="testimonial-box">
 
-      <p id="testimonialText">
-        A experiência vai além do produto.
-      </p>
+      <img class="testimonial-badge" src="assets/logos/logo-icone.png" alt="" width="52" height="52">
 
-      <span id="testimonialAuthor">
-        Meu Petit Bolinho®
-      </span>
+      <blockquote>
+        <p id="testimonialText">A experiência vai além do produto. Existe cuidado em cada detalhe.</p>
+      </blockquote>
 
-    </div>
+      <figcaption id="testimonialAuthor">Meu Petit Bolinho®</figcaption>
+
+      <div class="testimonial-dots" data-manifesto-dots role="group" aria-label="Escolher frase"></div>
+
+    </figure>
 
   </div>
 

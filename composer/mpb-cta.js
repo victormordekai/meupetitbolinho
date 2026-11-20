@@ -15,7 +15,7 @@ class MpbCta extends HTMLElement {
     if (this.dataset.ready) return;
     this.dataset.ready = 'true';
 
-    const { CONTATO, esc } = MPB;
+    const { whatsappSaudacao, esc } = MPB;
     const titulo = this.getAttribute('titulo') || 'Cada celebração merece intenção, cuidado e memória.';
     const texto = this.getAttribute('texto');
     const botao = this.getAttribute('botao') || 'Solicitar Atendimento';
@@ -28,7 +28,7 @@ class MpbCta extends HTMLElement {
             <h2>${esc(titulo)}</h2>
             ${texto ? `<p class="cta-sub">${esc(texto)}</p>` : ''}
           </div>
-          <a href="https://wa.me/${CONTATO.whatsapp}" target="_blank" rel="noopener noreferrer" class="btn-light">${esc(botao)}</a>
+          <a href="${whatsappSaudacao()}" target="_blank" rel="noopener noreferrer" class="btn-light">${esc(botao)}</a>
         </div>
       </section>`;
   }

@@ -229,3 +229,169 @@
 .nav-menu a[aria-current="page"] { font-weight: 600; }
 
 .menu-toggle { color: #fff; }
+
+/* =========================================================
+   V002.1 · botão de encomenda + navbar recolhível em HUDs
+   ========================================================= */
+
+.nav-wrapper {
+  gap: 16px;
+
+  /* distância da coluna até a borda da tela: os HUDs deslizam até ela */
+  --hud-gap: max(0px, calc((100vw - min(92vw, var(--container))) / 2 - 18px));
+}
+
+.header {
+  transition:
+    background-color .45s ease,
+    border-color .45s ease,
+    box-shadow .45s ease,
+    backdrop-filter .45s ease;
+}
+
+/* ---------- botão de encomenda ---------- */
+
+.desktop-cta .cta-curto { display: none; }
+
+/* ---------- logo (completo × ícone) ---------- */
+
+.navbar-brand {
+  position: relative;
+  flex-shrink: 0;
+  transition:
+    transform .6s cubic-bezier(.2, .8, .2, 1),
+    width .45s ease,
+    height .45s ease,
+    background-color .45s ease,
+    box-shadow .45s ease,
+    border-radius .45s ease;
+}
+
+.navbar-brand .brand-logo { transition: opacity .3s ease; }
+
+.navbar-brand .brand-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 38px;
+  max-height: none;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.6);
+  transition: opacity .3s ease, transform .45s ease;
+  pointer-events: none;
+}
+
+.menu-toggle,
+.desktop-cta,
+.nav-menu {
+  transition:
+    transform .6s cubic-bezier(.2, .8, .2, 1),
+    opacity .35s ease,
+    visibility .35s ease,
+    background-color .3s ease;
+}
+
+/* ---------- estado recolhido ---------- */
+
+.header.is-collapsed {
+  background: transparent;
+  border-bottom-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  pointer-events: none;
+}
+
+.header.is-collapsed .navbar-brand,
+.header.is-collapsed .menu-toggle,
+.header.is-collapsed .nav-menu.active {
+  pointer-events: auto;
+}
+
+.header.is-collapsed .navbar-brand {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(255, 250, 245, .97);
+  box-shadow: 0 12px 30px rgba(94, 40, 18, .22);
+  transform: translateX(calc(-1 * var(--hud-gap)));
+}
+
+.header.is-collapsed .navbar-brand .brand-logo { opacity: 0; }
+
+.header.is-collapsed .navbar-brand .brand-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.header.is-collapsed .desktop-cta {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-14px);
+}
+
+.header.is-collapsed .menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  box-shadow: 0 12px 30px rgba(94, 40, 18, .28);
+  transform: translateX(var(--hud-gap));
+  animation: hudSurge .45s ease both;
+}
+
+.header.is-collapsed .nav-menu.active { transform: translateX(var(--hud-gap)); }
+
+@keyframes hudSurge {
+  from { opacity: 0; transform: translateX(var(--hud-gap)) scale(.6); }
+}
+
+/* desktop: os links somem com a barra */
+@media (min-width: 1025px) {
+
+  .header.is-collapsed .nav-menu {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-14px);
+  }
+
+}
+
+/* ---------- celular e tablet ---------- */
+
+@media (max-width: 1024px) {
+
+  .navbar-brand { margin-right: auto; }
+
+  .desktop-cta {
+    display: inline-flex;
+    padding: 12px 18px;
+    font-size: .7rem;
+    letter-spacing: .12em;
+  }
+
+  .header.is-collapsed .desktop-cta { visibility: hidden; }
+
+}
+
+@media (max-width: 480px) {
+
+  .desktop-cta .cta-longo { display: none; }
+  .desktop-cta .cta-curto { display: inline; }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .header,
+  .navbar-brand,
+  .navbar-brand img,
+  .menu-toggle,
+  .desktop-cta,
+  .nav-menu {
+    transition: none;
+    animation: none;
+  }
+
+}

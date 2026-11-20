@@ -20,7 +20,7 @@ MPB.SITE = Object.freeze({
   nome: 'Meu Petit Bolinho®',
   /* Versão exibida no footer: V<maior><ordem>.<menor>.<correção> <ano>.<mês>
      Atualize a cada publicação; o footer de todas as páginas lê daqui. */
-  versao: 'V002.0.0 26.11',
+  versao: 'V002.1.1 26.11',
   copy: '© Meu Petit Bolinho® — Todos os direitos reservados',
   cidade: 'Curitiba • PR',
   logo: 'assets/logos/logo-light.png',
@@ -62,6 +62,12 @@ MPB.REGRAS = Object.freeze({
 /* wa.me com mensagem pronta */
 MPB.whatsappCom = texto =>
   `https://wa.me/${MPB.CONTATO.whatsapp}?text=${encodeURIComponent(texto)}`;
+
+/* Mensagem de primeiro contato: usada por todos os botões de WhatsApp
+   fora da encomenda do cardápio (CTA de atendimento e footer).
+   A encomenda do cardápio monta a própria mensagem com os itens. */
+MPB.SAUDACAO = 'Olá, vi sua página de confeitaria e gostaria de saber mais sobre a doceria Meu Petit Bolinho!';
+MPB.whatsappSaudacao = () => MPB.whatsappCom(MPB.SAUDACAO);
 
 /* R$ 1.234,50 */
 MPB.brl = valor =>

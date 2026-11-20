@@ -19,7 +19,8 @@ class MpbFooter extends HTMLElement {
     if (this.dataset.ready) return;
     this.dataset.ready = 'true';
 
-    const { SITE, CONTATO, NAV, REGRAS, PAGES, url, link, esc } = MPB;
+    const { SITE, CONTATO, NAV, REGRAS, PAGES, url, link, esc, whatsappSaudacao } = MPB;
+    const zap = whatsappSaudacao();
     const ext = 'target="_blank" rel="noopener noreferrer"';
 
     const item = (label, href) => {
@@ -45,7 +46,7 @@ class MpbFooter extends HTMLElement {
             <ul class="site-footer__social" aria-label="Redes sociais">
               <li><a href="${CONTATO.instagram}" ${ext} aria-label="Instagram">${MPB_ICONES.instagram}</a></li>
               <li><a href="${CONTATO.facebook}" ${ext} aria-label="Facebook">${MPB_ICONES.facebook}</a></li>
-              <li><a href="https://wa.me/${CONTATO.whatsapp}" ${ext} aria-label="WhatsApp">${MPB_ICONES.whatsapp}</a></li>
+              <li><a href="${zap}" ${ext} aria-label="WhatsApp">${MPB_ICONES.whatsapp}</a></li>
             </ul>
           </div>
 
@@ -67,7 +68,7 @@ class MpbFooter extends HTMLElement {
           <div class="site-footer__col">
             <span class="site-footer__title">Atendimento</span>
             <ul class="site-footer__contato">
-              <li><a href="https://wa.me/${CONTATO.whatsapp}" ${ext}>WhatsApp<br><b>${esc(CONTATO.whatsappLabel)}</b></a></li>
+              <li><a href="${zap}" ${ext}>WhatsApp<br><b>${esc(CONTATO.whatsappLabel)}</b></a></li>
               <li><a href="${CONTATO.instagram}" ${ext}>Instagram<br><b>${esc(CONTATO.instagramLabel)}</b></a></li>
               <li>Atendimento em<br><b>${esc(SITE.cidade)}</b></li>
             </ul>
