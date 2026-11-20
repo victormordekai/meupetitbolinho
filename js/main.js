@@ -1,16 +1,22 @@
-const faqQuestions = document.querySelectorAll('.faq-question');
+/* ========================================= */
+/* FAQ — ACORDEÃO ACESSÍVEL                  */
+/* ========================================= */
 
-faqQuestions.forEach(question => {
+document.querySelectorAll('.faq-question').forEach((question, i) => {
+
+  const answer = question.nextElementSibling;
+  const answerId = `faq-answer-${i + 1}`;
+
+  answer.id = answerId;
+  question.setAttribute('aria-controls', answerId);
+  question.setAttribute('aria-expanded', 'false');
 
   question.addEventListener('click', () => {
 
-    const answer = question.nextElementSibling;
+    const isOpen = question.getAttribute('aria-expanded') === 'true';
 
-    if(answer.style.maxHeight) {
-      answer.style.maxHeight = null;
-    } else {
-      answer.style.maxHeight = answer.scrollHeight + 'px';
-    }
+    question.setAttribute('aria-expanded', String(!isOpen));
+    answer.style.maxHeight = isOpen ? null : answer.scrollHeight + 'px';
 
   });
 
@@ -18,6 +24,9 @@ faqQuestions.forEach(question => {
 
 /* ========================================= */
 /* HERO CAROUSEL                             */
+/* Só a 1ª imagem vem no HTML; as demais     */
+/* (data-bg) carregam uma rodada antes de    */
+/* aparecer.                                 */
 /* ========================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,33 +37,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentHero = 0;
 
-  /*
-    Garante estado inicial
-  */
+  function loadHeroImage(index) {
+    const el = heroImages[index];
+
+    if (el && el.dataset.bg) {
+      el.style.backgroundImage = `url('${el.dataset.bg}')`;
+      el.removeAttribute('data-bg');
+    }
+  }
+
+  function nextIndex(index) {
+    return (index + 1) % heroImages.length;
+  }
+
+  loadHeroImage(currentHero);
   heroImages[currentHero].classList.add('active');
 
-  function showNextHeroImage() {
+  if (heroImages.length < 2) return;
+
+  /* pré-carrega a próxima depois que a página terminar de abrir */
+  window.addEventListener('load', () => loadHeroImage(nextIndex(currentHero)));
+
+  setInterval(() => {
 
     heroImages[currentHero].classList.remove('active');
 
-    currentHero++;
-
-    if (currentHero >= heroImages.length) {
-      currentHero = 0;
-    }
-
+    currentHero = nextIndex(currentHero);
+    loadHeroImage(currentHero);
     heroImages[currentHero].classList.add('active');
 
-  }
+    loadHeroImage(nextIndex(currentHero));
 
-  /*
-    Troca automática
-  */
-  if (heroImages.length > 1) {
-
-    setInterval(showNextHeroImage, 6000);
-
-  }
+  }, 6000);
 
 });
 
@@ -65,86 +79,64 @@ document.addEventListener('DOMContentLoaded', () => {
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
 
-menuToggle.addEventListener('click', (e) => {
-  e.stopPropagation();
+function setMenu(open) {
+  navMenu.classList.toggle('active', open);
+  menuToggle.setAttribute('aria-expanded', String(open));
+  menuToggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+}
 
-  navMenu.classList.toggle('active');
-});
+if (menuToggle && navMenu) {
 
-document.addEventListener('click', (e) => {
-  if (!navMenu.contains(e.target) &&
-      !menuToggle.contains(e.target)) {
+  menuToggle.setAttribute('aria-controls', 'navMenu');
+  menuToggle.setAttribute('aria-expanded', 'false');
 
-    navMenu.classList.remove('active');
-  }
-});
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setMenu(!navMenu.classList.contains('active'));
+  });
 
-window.addEventListener('scroll', () => {
-  navMenu.classList.remove('active');
-});
+  document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+      setMenu(false);
+    }
+  });
 
-document.querySelectorAll('.nav-menu a')
-  .forEach(link => {
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setMenu(false);
+  });
 
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('active');
-    });
+  window.addEventListener('scroll', () => setMenu(false), { passive: true });
 
-});
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setMenu(false));
+  });
+
+}
 
 /* ========================================= */
-/* TESTIMONIAL ROTATION                      */
+/* MANIFESTO / DEPOIMENTOS                   */
 /* ========================================= */
 
-const testimonials = [
+/*
+  DEPOIMENTOS REAIS
+  Preencha somente com falas reais de clientes, com autorização.
+  Exemplo: { text: '“…”', author: 'Ana P. — aniversário de 1 ano' }
+  Enquanto estiver vazio, a seção exibe o manifesto da marca.
+*/
+const depoimentos = [];
 
-  {
-    text:
-      '“A experiência vai além do produto. Existe cuidado em cada detalhe.”',
+const manifesto = [
+  'A experiência vai além do produto. Existe cuidado em cada detalhe.',
+  'Sabores pensados para transformar a festa em memória.',
+  'Delicadeza da apresentação ao atendimento.',
+  'Carinho colocado em cada etapa, do pedido à entrega.',
+  'Uma confeitaria feita para transformar momentos em lembranças.'
+].map(text => ({ text, author: 'Meu Petit Bolinho®' }));
 
-    author:
-      'Cliente Meu Petit Bolinho®'
-  },
+const testimonials = depoimentos.length ? depoimentos : manifesto;
 
-  {
-    text:
-      '“Os sabores conseguiram transformar a festa em uma memória ainda mais especial.”',
-
-    author:
-      'Cliente Meu Petit Bolinho®'
-  },
-
-  {
-    text:
-      '“Tudo transmitia delicadeza, desde a apresentação até o atendimento.”',
-
-    author:
-      'Cliente Meu Petit Bolinho®'
-  },
-
-  {
-    text:
-      '“Foi impossível não perceber o carinho colocado em cada detalhe.”',
-
-    author:
-      'Cliente Meu Petit Bolinho®'
-  },
-
-  {
-    text:
-      '“Uma confeitaria que realmente consegue transformar momentos em lembranças.”',
-
-    author:
-      'Cliente Meu Petit Bolinho®'
-  }
-
-];
-
-const testimonialText =
-  document.getElementById('testimonialText');
-
-const testimonialAuthor =
-  document.getElementById('testimonialAuthor');
+const testimonialText = document.getElementById('testimonialText');
+const testimonialAuthor = document.getElementById('testimonialAuthor');
 
 let testimonialIndex = 0;
 
@@ -155,19 +147,10 @@ function changeTestimonial() {
 
   setTimeout(() => {
 
-    testimonialIndex++;
+    testimonialIndex = (testimonialIndex + 1) % testimonials.length;
 
-    if (
-      testimonialIndex >= testimonials.length
-    ) {
-      testimonialIndex = 0;
-    }
-
-    testimonialText.innerText =
-      testimonials[testimonialIndex].text;
-
-    testimonialAuthor.innerText =
-      testimonials[testimonialIndex].author;
+    testimonialText.innerText = testimonials[testimonialIndex].text;
+    testimonialAuthor.innerText = testimonials[testimonialIndex].author;
 
     testimonialText.style.opacity = 1;
     testimonialAuthor.style.opacity = 1;
@@ -176,4 +159,11 @@ function changeTestimonial() {
 
 }
 
-setInterval(changeTestimonial, 5000);
+if (testimonialText && testimonialAuthor && testimonials.length > 1) {
+
+  testimonialText.innerText = testimonials[0].text;
+  testimonialAuthor.innerText = testimonials[0].author;
+
+  setInterval(changeTestimonial, 5000);
+
+}

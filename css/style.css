@@ -617,7 +617,7 @@ section {
   inset: 0;
 
   background-image:
-    url('/meupetitbolinho/assets/banners/memoria-afetiva-1.jpg');
+    url('../assets/banners/memoria-afetiva-1.jpg');
 
   background-size: cover;
   background-position: center;
@@ -740,6 +740,30 @@ section {
   padding: 28px;
   font-size: 16px;
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.faq-question::after {
+  content: "+";
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--primary-dark);
+  transition: transform .3s ease;
+}
+
+.faq-question[aria-expanded="true"]::after {
+  transform: rotate(45deg);
+}
+
+.faq-question:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -4px;
+  border-radius: var(--radius-md);
 }
 
 .faq-answer {
